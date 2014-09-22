@@ -1,0 +1,38 @@
+\chapter{Interface Web}
+
+Com arquitetura desenvolvida e funcional os utilizadores devem ter uma plataforma através da qual consigam acompanhar o seus registos resultantes da utilização da própria arquitetura. Essa foi uma das preocupações dessa dissertação, ou seja, fornecer também uma interface através da qual cada utilizador consiga aceder aos seus dados e várias informações relacionados com a monitorização efetuada com recurso à arquitetura. Serão apresentados assim neste capítulo a metodologia de desenvolvimento utilizada na concepção da interface web, os diferentes níveis de acesso existentes na plataforma, bem como as permissões a cada cada tipo de utilizador terá, os diversos registos de monitorização de cada utilizador e as diferentes formas de apresentação da informação, e ainda acesso ao histórico e evolução de cada utilizador.
+
+\section{Metodologia/Padrão de Desenvolvimento}
+
+No desenvolvimento da plataforma Web, através da qual os utilizadores poderão aceder aos seus registos de monitorização, foi utilizado como padrão de arquitetura de software o modelo MVC. Este padrão, cuja sigla MVC signfica \textit{Model-View-Controller}, trata-se de um dos padrões de desenvolvimento de software mais utilizados atualmente, e tem por base promover a reutilização do código desenvolvido, bem como a separação de conceitos e definição de interação entre eles em termos de arquitetura de software.
+
+Este padrão torna-se extremamente útil, e consequentemente bastante utilizado, com o aumento da complexidade das aplicações a desenvolver. Este facto levou a que existisse a necessidade de separar conceitos de forma a simplificar o processo de desenvolvimento para os responsáveis pela construção destas plataformas. Desta forma, torna-se fundamental a separação entre os dados da aplicação e a camada de apresentação, garantindo que as alterações feitas no \textit{layout} não interferem com a manipulação dos dados e estes podem ser modificados sem que isso tenha repercussões no \textit{layout}. Esta separação apenas é possível pela existência de um componente responsável pela intermediação entre os dois, o controlador.
+
+O modelo MVC, utilizado no desenvolvimento desta interface Web, divide assim os componentes da aplicação em três camadas: o \textit{Model} que representa os dados e o métodos de acesso e edição destes, a \textit{View} que corresponde à camada de visualização da aplicação, sendo a parte responsável pela iteração com os utilizadores. E por fim o \textit{Controller} que contém os métodos que processam os pedidos provenientes da \textit{view} e pode também invocar alterações no \textit{model}, funcionando como um controlador da aplicação e a ponte entre as duas camadas restantes. Desta forma é possível organizar de forma mais modular a arquitetura de uma aplicação web, centrando em cada camada única e exclusivamente as funções para as quais essa foi concebida, simplificando estruturalmente o desenvolvimento da aplicação.
+
+\section{Tipos de Acesso}
+
+A interface web criada para complementar a utilização da arquitetura foi desenhada com dois níveis de acesso para os seus utilizadores. Desta forma, os dois tipos de perfis existentes terão permissão de acesso a diferentes funcionalidades e informações da plataforma. Esta divisão de permissões em apenas dois níveis baseia-se na necessidade de ter um acesso para o utilizador comum consultar as suas informações, e o outro acesso para o administrador conseguir consultar todos os conteúdo da disponíveis na plataforma.
+
+O acesso com maior nível corresponde assim às permissões de administração. Este nível de acesso disponibiliza um conjunto alargado de informações sobre os utilizadores da arquitetura, dos seus registos de monitorização e ainda sobre os sensores conectados à arquitetura bem como o seu funcionamento. Este perfil de utilizador corresponde ao tipo de acesso mais elevado definido para esta interface e apenas um conjunto restrito de utilizadores devem ter acesso a estes conteúdos.
+
+[imagem de acesso de admin]
+
+O outro nível de acesso implementado corresponde ao acesso atribuído aos utilizadores comuns da arquitetura. Através do seu acesso à interface os utilizadores da arquitetura conseguem aceder às suas informações pessoais e a todos os dados relacionados com a sua monitorização. Deste modo, tem acesso todos os seus registos de monitorização apresentada de diferentes formas e pode ainda efetuar consultas sobre todo o seus histórico. Este nível representa um acesso mais restrito que o anterior, visto que limita os dados apresentados apenas aos correspondentes ao próprio utilizador e aos seus registos de monitorização.
+
+[imagem de acesso de user normal]
+
+\section{Histórico de Utilizador}
+
+No contexto de utilização da arquitetura por parte de um utilizador, este sentirá grande interesse em poder consultar e analisar o que resultou da sua monitorização. Deste modo, uma das preocupações no desenvolvimento da interface foi fornecer aos utilizadores acesso a todo o seu histórico de registos provenientes da utilização da arquitetura desenvolvida. Cada utilizador terá assim na sua área pessoal acesso total a todo o conteúdo de informação recolhida e processada pela arquitetura. Para além disso terá ainda disponível diversas formas de acesso e apresentação da informação, com o intuito de que os seus utilizadores possam tirar o máximo de proveito do seu histórico de registos.
+
+...
+
+\section{Resultados de Monitorização}
+
+Os resultados da monitorização efetuada por cada utilizador da plataforma são essencialmente registos armazenados numa base de dados, provenientes dos dados de recolhidos pelos sensores e processados pelos serviços integrados na arquitetura. Importa para o utilizador comum conseguir visualizar estes registos e concluir sobre estes. Perante essa necessidade do utilizador foram pensadas quais as melhores formas de apresentar essa informação. Com base nas características dos utilizadores da arquitetura e dos próprios registos resultantes de todo o processo de recolha e tratamento da informação já apresentado foram desenvolvidos um conjunto de formas de apresentação dos resultados ao utilizador. Estas formas de apresentação de resultados visam oferecer uma visualização e apresentação simples e intuitiva para melhor compreensão da informação.
+
+....
+
+
+\section{Conclusão}

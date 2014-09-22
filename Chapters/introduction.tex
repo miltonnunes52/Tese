@@ -1,0 +1,67 @@
+\chapter{Introdução}
+
+O ambiente que rodeia um indivíduo encontra-se repleto de informação que é normalmente ignorada mas que pode ser utilizada de diversas formas em seu proveito. É possível utilizar essa informação ambiente para proporcionar maior conforto, promover o seu bem estar e até contribuir para a sua saúde física e mental. Através da utilização de sensores que monitorizem comportamentos e ações de um ser humano é possível efetuar recolhas de dados, que depois de processados poderão revelar indicadores da ocorrência de fatores como por exemplo a fadiga ou stress. A partir deste levantamento de informação é possível retirar conclusões que permitam promover a qualidade de vida de um indivíduo, contribuir para o seu bem estar e para a sua saúde. 
+
+Um exemplo prático que retrata este tipo de situações é por exemplo a monitorização de uma estrada em que se registe um elevado número de acidentes. Através da sua monitorização poder-se-ia analisar as suas condições, a condução dos seus utilizadores, as alterações na condução perante mudanças climatéricas, entre outras situações. Com base nos resultados desta monitorização seria então possível retirar conclusões que permitissem evitar a ocorrência de tantos acidentes.
+
+
+\section{Motivação}
+O registo da informação ambiente que é por diversas vezes desaproveitada, pode ser feito através do recurso a dispositivos eletrónicos como os sensores. Estes dispositivos, de fácil acesso e utilizado nos mais diversos contextos, têm a capacidade de identificar e responder a estímulos de forma a convertê-los em sinais que podem assim ser registados e armazenados\cite{akyildiz2002wireless}. 
+
+Existe atualmente no mercado um conjunto bastante diversificado de sensores, capazes de identificar vários tipos de indicadores, como os sensores de luz, movimento ou temperatura. Uma das grande vantagens deste tipo de dispositivos é a diversidade de indicadores que estes permitem identificar e registar. Contudo este potencial proporcionado pela diversidade de sensores não é ainda suficientemente aproveitado, dado que a utilização destes dispositivos é feito na maior parte das vezes de forma isolada, descurando-se assim a possibilidade de estabelecer uma relação entre os vários indicadores levantados e construir uma visão global \cite{salber1999designing} sobre a informação presente num ambiente que se pretende inteligente \cite{ducatel2001scenarios, ducatel2003ambient}.
+
+Assim, este trabalho é motivado pela criação de uma arquitetura que possa colmatar esta questão. Dessa forma pretende-se integrar numa arquitetura sensores de diversos tipos, de forma distribuída, capaz de recolher vários tipos de indicadores e armazenar essa informação. Esta arquitetura vem resolver o problema da dispersão dos dados e permitir a \textbf{monitorização de um ambiente inteligente}, disponibilizando por fim um vasto leque de informações recolhidas através dos dispositivos integrados.
+
+Este trabalho está diretamente ligado a áreas como por exemplo a saúde, psicologia e militar \cite{akyildiz2002wireless, aarts2006into}. Estas áreas têm grande interesse em sistemas que através do uso de dispositivos como sensores, permitam a monitorização e recolha de dados ambiente, dando assim suporte ao desenvolvimento de estudos relacionadas com estados como o stress e fadiga ou à disponibilização de determinado serviço. Posto isto, estas são áreas que terão obviamente o seu foco direcionado para uma solução como a arquitetura descrita.
+
+
+\section{Âmbito da Dissertação}
+Uma pessoa quando se encontra tanto no seu período de trabalho como fora dele, está sujeito a diversos fatores que provocam reações físicas e psicológicas que por vezes este nem sequer se apercebe. Contudo estas reações têm implicações no seu rendimento, no seu comportamento e até porventura no seu futuro. Todas estas reações são, na maior parte das vezes, impercetíveis à \textit{vista desarmada}, contudo podem ser identificadas e registadas com o recurso a dispositivos como os sensores. Através da utilização deste tipo de tecnologias é possível recolher um conjunto alargado de indicadores, que podem assim ser analisados e retirar conclusões sobre o comportamento e consequente bem estar de um indivíduo envolvido num ambiente inteligente, com o intuito de proporcionar-lhe cada vez melhores condições.
+
+Posto isto, pretende-se com este trabalho desenvolver uma \textbf{arquitetura composta por sensores colocados de forma distribuída} que recolham dados de diversas fontes de informação, monitorizando desta forma indivíduos num ambiente inteligente. A informação recolhida pretende-se que seja armazenada numa unidade central de modo a que seja possível consultar e relacionar facilmente os diversos tipos de dados. Assim pretende-se, para além de monitorizar um ambiente inteligente, automatizar a recolha dos dados provenientes dos diversos serviços alocados de forma distribuída e facilitar a sua gestão.
+
+
+\section{Principais Desafios}
+
+A recolha de informação ambiente que circunda um indivíduo é uma tarefa que requer alguma sensibilidade. Esta deve ser efetuada com bastante cuidado pois os métodos utilizados nesta tarefa devem evitar interferir com o comportamento natural do indivíduo, para garantir a fiabilidade da informação recolhida. Desta forma, deve ser efetuada uma monitorização constante sobre os seus utilizadores de modo a que seja possível recolher um número considerável de dados, que abranjam diferentes situações e momentos, com diferentes características e em diversos âmbitos. Esta diversidade é extremamente importante pois permitirá verificar oscilações, comparar diferentes contextos e verificar diferentes comportamentos e reações.
+
+Para além dos contextos e situações de monitorização, é fundamental que a amostra proveniente  dos utilizadores consiga abranger vários tipos de indicadores. Existem vários tipos de informação que pode ser recolhida, dando origem a diferentes indicadores a ter em conta sobre cada utilizador. Esta diversidade de informação é muito importante pois determina a fiabilidade do conjunto de dados levantados e acrescenta solidez e precisão à monitorização efetuada sobre cada indivíduo.
+
+Tendo como base a existência de diversos contextos e tipos de informação, provenientes de diferentes sensores, é essencial também automatizar toda a gestão de serviços que farão parte da arquitetura. Estes serviços que se encontram associados a diferentes tipos de sensores, deverão ter a capacidade de efetuar periodicamente comunicações com a uma unidade central com o intuito de automaticamente gerar fluxos de informação para que esta esteja facilmente acessível. A funcionalidade da aplicação dependerá diretamente da acessibilidade aos dados levantados, dado que o principal propósito da recolha de informação ambiente é que esta esteja disponível para que possa ser utilizada em prol dos seus utilizadores.
+
+A utilização de vários sensores para recolha de informação e a importância da sua comunicação implica que a arquitetura garanta a interoperabilidade dos componentes nela integrados. Os diversos dispositivos que constituem a arquitetura devem conseguir comunicar de modo transparente, permitindo a assim uma troca efetiva e eficiente de informação. Esta característica assegura a cooperação dos diversos tipos de sensores que compõem a arquitetura e permite adicionar novos dispositivos de forma automática.
+
+\section{Objetivos}
+
+O objetivo deste trabalho é desenvolver uma arquitetura composta por vários tipos de sensores distribuídos para a monitorização dos seus utilizadores e consequente recolha de informação ambiente. Para isto será necessário implementar um conjunto alargado de serviços capazes de recolher diversos tipos de informação e tratar do seu envio para uma unidade central onde esta será armazenada. Com o intuito de construir uma arquitetura o mais abrangente possível, esta será composta por fontes de informação diversificadas podendo ter como origem dispositivos como computadores, dispositivos móveis e até unidades de biofeedback.
+
+A criação de uma unidade central onde a informação é armazenada deve-se ao facto de estruturalmente ser mais fácil processar e aceder os dados recolhidos. Desta forma os dados de cada utilizador tornam-se facilmente acessíveis, podendo ser analisados, comparados os diversos tipos de dados, verificadas as oscilações ocorridas e ainda constatar a evolução ao longo de todo o período de monitorização.
+
+Posto isto, enumera-se de seguida os principais objetivos a alcançar com este trabalho:
+\begin{itemize}
+  \item Criar arquitetura composta por sensores distribuídos através da framework SwitchYard baseada na linguagem de programação Java.
+  \item Implementar serviços que recolham diferentes tipos de dados de vários sensores em tempo real.
+  \item Assegurar a interoperabilidade dos diferentes componentes integrados na arquitetura.
+  \item Agregar toda a informação proveniente dos vários serviços numa unidade central.
+  \item Identificar a existência de novos serviços e integrá-los automaticamente na arquitetura.
+  \item Fazer a gestão dos dados armazenados na unidade central.
+  \item Garantir a segurança da informação armazenada.
+  \item Desenvolver uma página web na qual os utilizadores consigam aceder aos seus dados.
+  \end{itemize}
+
+
+\section{CAMCoF}
+Este trabalho está integrado num projeto de maior dimensão denominado \textbf{Context-aware Multimodal Communication Framework}\footnote{http://islab.di.uminho.pt/camcof/index.php}. Este tem como objetivo desenvolver uma framework para modelação do contexto de um utilizador com base na ocorrência de stress. Sendo este estado estimado tendo em conta a análise do comportamento de indivíduos e os seus padrões de interação.
+
+Através da utilização da informação recolhida, o CAMCoF pretende ainda desenvolver um ambiente virtual que permita que os seus utilizadores tenham acesso a processos de comunicação semelhantes à comunicação cara-a-cara. Pretende-se também que a framework seja não-intrusiva e não-invasiva, características que permitirão que a monitorização efetuada seja o mais frequente e precisa possível.
+
+\section{Estrutura do Documento}
+
+Estruturalmente este documento encontram-se dividido em três capítulos abordando cada um dos seguintes temas: Ambientes Inteligentes, Arquitetura Orientada a Serviços e Planeamento de Investigação. 
+
+No capítulo 1 referente aos Ambientes Inteligentes é explicado em que consistem, a importância da Informação Ambiente, a sua função como um serviço apresentado aos seus utilizadores, em que consiste a Monitorização e ainda alguns exemplos de Sistemas de Monitorização existentes e quais as suas características.
+
+O capítulo seguinte define em que consiste uma Arquitetura Orientada a Serviços, as características da arquitetura definida, a importância da utilização de sensores na arquitetura, a forma como a informação é armazenada, as tecnologias utilizadas e ainda algumas decisões tomadas no que ao contexto tecnológico diz respeito, bem como o fundamento dessas decisões.
+
+No último capítulo, Planeamento da Investigação, é apresentado a Metodologia de Investigação utilizada, bem como a calendarização definida e é ainda descrito o ponto de situação do trabalho neste momento.
+

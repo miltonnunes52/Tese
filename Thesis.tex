@@ -1,0 +1,248 @@
+
+
+%% ----------------------------------------------------------------
+%% Thesis.tex -- MAIN FILE (the one that you compile with LaTeX)
+%% ---------------------------------------------------------------- 
+
+% Set up the document
+\documentclass[a4paper, 12pt, oneside]{Thesis}  % Use the "Thesis" style, based on the ECS Thesis style by Steve Gunn
+\graphicspath{{Figures/}}  % Location of the graphics files (set up for graphics to be in PDF format)
+\usepackage[portuguese]{babel}
+
+% Include any extra LaTeX packages required
+\usepackage[square, numbers, comma, sort&compress]{natbib}  % Use the "Natbib" style for the references in the Bibliography
+\usepackage[T1]{fontenc}
+\usepackage{verbatim}  % Needed for the "comment" environment to make LaTeX comments
+\usepackage{vector}  % Allows "\bvec{}" and "\buvec{}" for "blackboard" style bold vectors in maths
+%\usepackage{graphicx}
+\usepackage{float}
+\usepackage{graphics}
+\usepackage{amsmath, amssymb}
+\usepackage{eurosym}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{alltt}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{color}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{epsf}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage[final]{pdfpages}
+\usepackage[nottoc,notbib]{tocbibind}
+%\usepackage[notlof]{tocbibind}
+\usepackage{thumbpdf}
+%\usepackage[latin1]{inputenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{todonotes}
+\usepackage{fancyvrb}
+\usepackage{float}
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Exemplo}% Listing -> Algorithm
+
+
+
+
+
+\newcommand{\X}{\mathcal{X}}
+
+
+\hypersetup{urlcolor=blue, colorlinks=true}  % Colours hyperlinks in blue, but this can be distracting if there are many links.
+
+
+%% ----------------------------------------------------------------
+\begin{document}
+
+\frontmatter	  % Begin Roman style (i, ii, iii, iv...) page numbering
+
+%COVER PAGE%
+\includepdf[pages=1,scale=1,offset=2.5cm -2.5cm]{capatese.pdf}
+\includepdf[pages=2,scale=1,offset=2.5cm -2.5cm]{capatese.pdf}
+%% ----------------------------------------------------------------
+
+\setstretch{1.5}  % It is better to have smaller font and larger line spacing than the other way round
+\onehalfspacing
+% Define the page headers using the FancyHdr package and set up for one-sided printing
+\fancyhead{}  % Clears all page headers and footers
+\rhead{\thepage}  % Sets the right side header to show the page number
+\lhead{}  % Clears the left side page header
+
+\pagestyle{fancy}  % Finally, use the "fancy" page style to implement the FancyHdr headers
+
+%% ----------------------------------------------------------------
+% Declaration Page required for the Thesis, your institution may give you a different text to place here
+
+\clearpage  % Declaration ended, now start a new page
+
+%% ----------------------------------------------------------------
+% The "Funny Quote Page"
+%\pagestyle{empty}  % No headers or footers for the following pages
+%
+%\null\vfill
+% Now comes the "Funny Quote", written in italics
+%\textit{``If we could unfold the future, the present would be our greatest care.''}
+%
+%\begin{flushright}
+%Edward Counsel, Maxims
+%\end{flushright}
+%
+%\vfill\vfill\vfill\vfill\vfill\vfill\null
+%\clearpage  % Funny Quote page ended, start a new page
+%% ----------------------------------------------------------------
+%----------------Resumo----------------
+\pagenumbering{roman} \setcounter{page}{1}
+% The Abstract Page
+%\addtotoc{Resumo}  % Add the "Abstract" page entry to the Contents
+\begin{center}
+{\large \textit{Resumo} }
+\end{center}
+%\newenvironment{resumo}
+%{\thispagestyle{empty} \vspace*{\stretch{1}}\begin{flushleft} \em}{\end{flushleft} \vspace*{\stretch{3}}}
+
+
+\vspace{0.5cm}
+\quad Existe atualmente uma grande facilidade no acesso à informação e um interesse generalizado em utilizar essa informação para aumentar a comodidade e bem estar das pessoas. O conhecimento é reconhecidamente uma arma poderosa que tende ser explorada até ao limite. Desta forma importa encontrar todas as fontes de informação que possam ser úteis para alcançar esse objetivo global. Neste sentido o potencial da informação ambiente que rodeia um ser humano é enorme e a falta de aproveitamento verificada sobre esse conhecimento é uma falha que deve ser colmatada. Existem nesta perspetiva várias formas de aplicação deste conhecimento, entre as quais a possibilidade de proporcionar melhores condições de vida e de bem estar. Pretende-se assim com este trabalho desenvolver uma arquitetura composta por sensores colocados de forma distribuída capaz de monitorizar ambientes inteligentes com base em diversos fatores. Nesta arquitetura a função de cada sensor pode ser vista como um serviço prestado aos seus utilizadores, através dos quais são recolhidos diferentes tipos de informação. Este trabalho, através dos vários indicadores recolhidos, oferece aos seus utilizadores o acesso a diversas informações sobre o seu comportamento e reações durante o período de monitorização.
+
+\vspace{3cm}
+
+\textbf{Palavras-chave:} Arquitetura, Serviços, Ambientes Inteligentes, Monitorização, Sensores
+%----------------Abstract----------------
+
+%\addtotoc{Abstract}  % Add the "Abstract" page entry to the Contents
+\include{Abstract}
+
+%\addtotoc{Agradecimentos}
+%\include{Agradecimentos}
+
+%% ----------------------------------------------------------------
+
+\pagestyle{fancy}  %The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
+
+%% ----------------------------------------------------------------
+\lhead{\emph{Conteúdo}}  % Set the left side page header to "Contents"
+\tableofcontents  % Write out the Table of Contents
+
+%% ----------------------------------------------------------------
+%\lhead{\emph{Lista de figuras}}  % Set the left side page header to "List if Figures"
+\renewcommand\listfigurename{Lista de figuras}
+%\listoffigures  % Write out the List of Figures
+
+%% ----------------------------------------------------------------
+%\lhead{\emph{Lista de figuras}}  % Set the left side page header to "List of Tables"
+\renewcommand\listtablename{Lista de tabelas}
+%\listoftables  % Write out the List of Tables
+
+
+%% ----------------------------------------------------------------
+\setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
+\clearpage  % Start a new page
+\lhead{\emph{Abreviaturas}}
+\addtotoc{Abreviaturas}
+
+{\centering \LARGE
+{\LARGE\bf \textbf{Abreviaturas} } }\\\\
+
+
+\begin{table}[!h]
+\begin{tabular}{ll} 
+	\textbf{CAMCoF}	& \textbf{C}ontext \textbf{M}ultimodal  \textbf{C}omunication \textbf{F}ramework	 \\ \\
+	\textbf{AmI}	& \textbf{Am}bient \textbf{I}ntelligence	 \\ \\
+	\textbf{REST}	& \textbf{Re}presentational \textbf{S}tate \textbf{T}ransfer	 \\ \\
+	\textbf{SOAP}	& \textbf{S}imple \textbf{O}bject  \textbf{A}ccess \textbf{P}rotocol	 \\ \\
+	\textbf{XML}	& e\textbf{X}tensible \textbf{M}arkup  \textbf{L}anguage	 \\ \\
+	\textbf{JSON}	& \textbf{J}ava\textbf{S}cript  \textbf{O}bject \textbf{N}otation	 \\ \\
+	\textbf{HTTP}	& \textbf{H}yper\textbf{T}ext  \textbf{T}ransfer \textbf{P}rotocol	 \\ \\
+	\textbf{TCP}	& \textbf{T}ransmission \textbf{C}ontrol  \textbf{P}rotocol	 \\ \\
+	\textbf{IP}	& \textbf{I}nternet \textbf{P}rotocol	 \\ \\
+	\textbf{URL}	& \textbf{U}niform \textbf{R}esource  \textbf{L}ocator	 \\ \\
+	\textbf{API}	& \textbf{A}pplication \textbf{P}rogramming  \textbf{I}nterface  \\ \\
+	\textbf{OSGi}	& \textbf{O}pen \textbf{S}ervice  \textbf{G}ateway \textbf{i}nitiative	 \\ \\
+	\textbf{XSLT}	& e\textbf{X}tensible \textbf{S}tylesheet  \textbf{L}anguage \textbf{T}ransformations	 \\ \\
+	\textbf{BPMN}	& \textbf{B}usiness \textbf{P}rocess  \textbf{M}odel and \textbf{N}otation	 \\ \\
+	\textbf{jBPM}	& \textbf{j}ava  \textbf{B}usiness \textbf{P}rocess \textbf{M}anagement	
+ \\ \\
+	\textbf{POM}	& \textbf{P}roject \textbf{O}bject  \textbf{M}odel  \\ \\
+\end{tabular}
+\end{table}
+
+
+
+%% ----------------------------------------------------------------
+
+% End of the pre-able, contents and lists of things
+% Begin the Dedication page
+
+\setstretch{1.3}  % Return the line spacing back to 1.3
+
+\pagestyle{empty}  % Page style needs to be empty for this page
+
+
+\addtocontents{toc}{\vspace{2em}}  % Add a gap in the Contents, for aesthetics
+
+
+%% ----------------------------------------------------------------
+\mainmatter	  % Begin normal, numeric (1,2,3...) page numbering
+\lhead[\rm\thepage]{\fancyplain{}{\sl{\rightmark}}}
+\pagestyle{fancy}  % Return the page headers back to the "fancy" style
+
+% Include the chapters of the thesis, as separate files
+% Just uncomment the lines as you write the chapters
+
+\input{./Chapters/introduction} % Introdução
+
+\input{./Chapters/ambient} 
+
+\input{./Chapters/architecture} 
+
+\input{./Chapters/architectureDev}
+
+\input{./Chapters/casestudy} 
+
+\input{./Chapters/interface} 
+
+\input{./Chapters/conclusion} 
+
+
+
+
+
+
+%% ----------------------------------------------------------------
+% Now begin the Appendices, including them as separate files
+
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+
+\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
+
+%\input{./Appendices/AppendixA}	% Appendix Title
+
+
+%\input{./Appendices/AppendixB} % Appendix Title
+
+%\input{./Appendices/AppendixC} % Appendix Title
+
+\addtocontents{toc}{\vspace{2em}}  % Add a gap in the Contents, for aesthetics
+\backmatter
+
+%% ----------------------------------------------------------------
+%\pagebreak
+%\bibliographystyle{plain}
+%\bibliography{teseBibtex.bib}
+%\pagebreak
+
+\bibliographystyle{plain}  % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+\bibliography{teseBibtex}  % The references (bibliography) information are stored in the file named "Bibliography.bib"
+
+\pagebreak
+
+
+
+
+
+\end{document}  % The End
+
+
+%% ----------------------------------------------------------------

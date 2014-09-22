@@ -1,0 +1,153 @@
+\chapter{Arquitetura Orientada a Serviços}
+
+\section{O que é?}
+A arquitetura de um sistema de software corresponde à definição dos componentes que a compõem, às suas propriedades e à forma como estes se relacionam \cite{bosch2004software}. Importa portanto definir qual a melhor arquitetura a implementar tendo em conta o objectivo e as características do trabalho. Este trabalho pretende a recolha de informação através da utilização de sensores e o seu armazenamento numa unidade central, através da qual os dados possam ser acedidos. Tendo em conta que se pretende monitorizar os utilizadores da plataforma, esta deve estar preparada para suportar nos seus nodos sensores colocados de forma distribuída. Desta forma, a cada sensor integrado na arquitetura está associado um determinado serviço de monitorização, pelo que a sua função pode ser vista como um serviço prestado aos seus utilizadores. Estamos assim perante uma arquitetura orientada a serviços, em que a troca de informação entre os nodos e a unidade central é feita através da comunicação efetuada entre eles.
+
+Posto isto, uma arquitetura orientada a serviços consiste numa arquitetura de software em que as funcionalidades implementadas são disponibilizadas sob a forma de serviços \cite{he2003service, papazoglou2003service}. Estes serviços contém normalmente interfaces através das quais é estabelecida a comunicação entre os diferentes serviços ou aplicações. As interfaces disponibilizadas por cada serviços devem apenas apresentar a informação necessária à correcta utilização do serviço, promovendo assim a abstração dos seus serviços \cite{erl2004service, krafzig2005enterprise}. Este tipo de arquitetura tem ainda como princípio que os seus componentes devem minimizar ao máximo a dependência entre os diferentes componentes \cite{erl2004service, krafzig2005enterprise} tornando-se assim mais fácil e flexível o desenvolvimento dos diferentes serviços da arquitetura.
+
+Deste modo fica bem patente a forma como a arquitetura é projetada, qual a função dos seus componentes e o método de comunicação entre eles. Esta arquitetura permite assim a utilização de sensores funcionando como serviços que monitorizam os seus utilizadores, sendo que a sua utilização não está limitada a um determinado espaço físico, nem a um período de tempo previamente definido, permitindo assim maior liberdade na utilização da plataforma e diversidade no que diz respeito ao contexto de utilização e consequentemente garante maior fiabilidade dos dados recolhidos.
+
+
+\section{Sensores}
+
+Os sensores são dispositivos fundamentais para o correto funcionamento da arquitetura descrita. Estes correspondem ao nodos da arquitetura e são responsáveis pela \textbf{recolha da informação ambiente} dos utilizadores da plataforma. Os sensores são então dispositivos que identificam estímulos e reações e os convertem em sinais que podem ser quantificados e de seguida registados \cite{akyildiz2002wireless}. Estes representam assim a primeira fase do \textit{workflow} do funcionamento da plataforma, através do contacto direto que têm com os utilizadores e sem a qual seria impossível obter os dados necessários para o funcionamento do sistema.
+
+Um dos objetivos da arquitetura é oferecer suporte para a recolha de diversos tipos de dados. Impõem-se portanto a utilização de diversos tipos de sensores. Existe no mercado um vasto leque de tipos de sensores correspondentes a vários tipos de estímulos a identificar. São exemplos de sensores por exemplo, sensores de temperatura, de som, de luz, de movimento, químicos e até de radiação. Como o propósito do trabalho é utilizar como fontes de informação dispositivos como computadores, smartphones e unidades de biofeedback, nem todos se enquadram na arquitetura, contudo a oferta existente é suficientemente alargada para garantir as pretensões do trabalho. De referir ainda que dado o desenvolvimento tecnológico verificado, já existem dispositivos equipados com capacidade de processamento, memória e comunicação wireless \cite{akyildiz2002wireless}, apesar de serem obviamente ainda algo limitados, o que facilita a sua integração na arquitetura.
+
+O aparecimento destes equipamentos permitiu um significante desenvolvimento na área da \textbf{monitorização} e recolha de dados ambiente\cite{himakashi2012wireless}. O conhecimento da existência de diversa informação ambiente levou a que houvesse a necessidade de desenvolvimento destes dispositivos, mitigando aquilo que era considerado um grande revés em várias áreas. Com o seu desenvolvimento e comercialização verificou-se um elevado interesse por parte de áreas como a saúde, psicologia e militar, o que levou a que estas começassem a desenvolver vários estudos com base na sua utilização, verificando-se assinaláveis desenvolvimentos em diversos contextos\cite{himakashi2012wireless}.
+
+
+\section{Armazenamento da Informação}
+
+Um dos objetivos do trabalho é que a informação ambiente levantada esteja disponível para consulta dos seus utilizadores de forma a que estes possam acompanhar os seus resultados e evolução ao longo do período de monitorização. Tendo em conta este fator e a arquitetura definida, é essencial que a informação proveniente dos serviços conectados seja tratada e disponibilizada de forma a que os seus utilizadores a consigam entender facilmente. Posto isto, a informação deverá ser armazenada numa unidade central onde possa ser processada e a partir da qual os utilizadores da plataforma lhe consigam aceder.
+
+Desta forma é essencial estabelecer uma comunicação periódica entre a unidade central e os vários serviços que constituem a arquitetura. Através desta comunicação os serviços são responsáveis por em determinado período de tempo enviar a informação recolhida para a unidade central, na qual são realizadas operações sobre os dados enviados. Estas operações tem como objetivo filtrar a informação relevante enviada pelos serviços, associá-la ao perfil do utilizador monitorizado e disponibilizá-la para consulta. 
+
+De nada serve um eficaz levantamento da informação ambiente se esta não produzir resultados palpáveis para os utilizadores que decidam utilizar a plataforma. Assim, a apresentação de resultados práticos legíveis aos olhos dos utilizadores revela-se um fator fundamental para que a aplicação atinja o sucesso \cite{fernandes1995global}. Posto isto, a centralização da informação recolhida pelos nodos da arquitetura numa única unidade revela-se a melhor solução para o tratamento da informação e consequente acesso aos resultados produzidos pela monitorização e recolha de dados.
+
+
+
+\section{Tecnologias}
+
+O desenvolvimento de uma aplicação de software implica a utilização de tecnologias de acordo com o contexto e objetivos do trabalho. Desta forma, é por vezes necessário tomar algumas opções no que ao enquadramento tecnológico diz respeito. Assim são apresentadas nesta secção as principais tecnologias utilizadas e os motivos pelos quais algumas escolhas foram tomadas. De assinalar também que todas as opções tecnológicas tomadas têm como base garantir a interligação do trabalho com os restantes módulos do CAMCoF.
+
+\subsection{Decisões}
+
+
+\subsubsection{REST vs SOAP}
+Um web service consiste num método de comunicação entre dispositivos através da \textit{web}. Através desta tecnologia dois dispositivos com acesso à Internet podem comunicar e trocar informação entre eles. Esta solução permite, para além da interação entre diferentes aplicações, que recursos de um dispositivo esteja disponível através da rede, bem como diferentes aplicações com linguagens próprias consigam comunicar através de um formato universal, como por exemplo JSON ou XML. Foram então considerados dois métodos de comunicação para a arquitetura, o REST e o SOAP, pelo que foram analisados as suas vantagens e desvantagens neste contexto, de forma a sustentar a decisão tomada \cite{mulligan2009comparison}.
+
+O SOAP é um método de transferência de mensagens ou pequenas quantidades de informação através da Internet. Este método utiliza como formato da mensagem o XML e o envio é feito normalmente através de HTTP. Ambos os métodos são baseados num conjunto de regras para requisitar a informação de um servidor através de uma técnica específica, o que lhes permite alcançar um elevado nível de uniformização. De seguida apresenta-se um conjunto de características que constituem o SOAP:
+\begin{itemize}
+	\item Constituído por um protocolo XML sobre HTTP ou TCP/IP.
+	\item Descreve funções e tipos de dados.
+	\item Não necessita de código especifico para invocação, pode ser invocado através do URL do web service.
+	\item Os dados são codificados em base64.
+	\item Altamente expansivo.
+	\item Requer menos código para a comunicação entre a camada de software e as inferiores que o REST.
+	\item Contém códigos standard que permitem tratamento de erros automáticos no próprio código.
+\end{itemize}
+
+O REST é um método simples de envio de informação entre cliente e servidor e não tem tantos standards definidos como o SOAP. A informação pode ser enviada e recebida como JSON, XML ou até como texto limpo. São apresentadas de seguida algumas características do REST:
+\begin{itemize}
+	\item Depende quase exclusivamente de HTTP.
+	\item É menos complexo e mais leve do que SOAP.
+	\item Usa normalmente métodos HTTP em vez de grandes formatos XML que incluem grandes descrições.
+	\item Dados são simplesmente entregues como resposta a um pedido.
+	\item Não existe um conjunto de regras standard para descrever um web service baseado em REST.
+	\item Desde que a linguagem de programação utilizada tenha uma biblioteca HTTP, esta pode utilizar um protocolo REST HTTP facilmente.
+\end{itemize}
+
+Posto isto, estes dois métodos apresentam cada um as suas vantagens em determinado contexto. Tendo em conta que, no caso específico desta arquitetura se valoriza mais a eficiência, a menor complexidade, a simplicidade de utilização, e a flexibilidade de representação de informação, o \textbf{REST} é o mais indicado para a sua construção. 
+
+\subsubsection{JSON vs XML}
+
+A transmissão de informação através da Web pressupõem a utilização de formatos standard. Atualmente existem dois formatos bastante utilizados na troca de informação, o mais antigo e conhecido XML e o mais recente e em ascensão JSON. Ambos são constituídos por linguagens facilmente legíveis para um ser humano, contudo divergem em determinadas características e em questões de performance. Posto isto, importa analisar e comparar ambos os formatos de forma a encontrar o que melhor se enquadra nas características da arquitetura a desenvolver \cite{nurseitov2009comparison}.
+
+O XML, o mais utilizado ao longo dos últimos anos para troca de informação, é um formato muito bem definido e claramente estruturado, indicado por isso para situações em que a estrutura dos dados a transmitir é relevante. A presença de uma estrutura bem detalhada e definida é evidente na análise de um documento XML. Este facto contudo diminui a performance da sua escrita comparativamente a formatos menos estruturados. Contudo, neste formato as etiquetas utilizadas não são pré-definidos ou próprias da linguagem, o que atribui ao utilizador a responsabilidade de definir o seu próprio esquema consoante os dados utilizados.
+
+\begin{lstlisting}[caption=Descrição de um sensor em XML]
+<sensor>
+   <id>1634</id>
+   <type>Motion</type>
+   <position>4543</position>
+</sensor>
+\end{lstlisting}
+
+
+
+O JSON é mais recente mas dadas as suas características tem sido cada vez mais utilizado. Este formato foi desenvolvido com o intuito de ser igualmente fácil de interpretar pelo ser humano, mas também para que que o seu \textit{parsing} e utilização sejam tarefas facilmente executáveis pelas máquinas. Assim, o JSON apresenta uma estrutura menos detalhada que o XML o que permite que este seja mais rápido a escrever e obtenha uma performance superior. Pode-se definir então este formato como sendo menos complexo que o XML e mais indicado para transmissões em que a estrutura dos dados seja menos relevante.
+
+\begin{lstlisting}[caption=Descrição de um sensor em JSON]
+{
+   "id": 1634,
+   "type": "Motion",
+   "position": 4543
+}
+\end{lstlisting}
+
+
+Tendo em conta as características descritas de cada um dos formatos para troca de informação, ambas apresentam os seus prós e contras, sendo que a escolha do formato a utilizar deve ser baseado não apenas na questão da performance mas também nos dados a transmitir e no seu contexto. Posto isto, a transmissão de dados na arquitetura incide sobretudo na passagem da informação recolhida pelos diversos sensores para a unidade central, sendo que neste caso a estrutura dos mesmos não é significativa nem relevante. Tendo por base este fator aliado à melhor performance registada pelo \textbf{JSON} \cite{nurseitov2009comparison} , este formato revela-se a escolha mais indicada.
+
+
+\subsubsection{Switchyard vs OSGi}
+
+Uma framework consiste num conjunto de conceitos que servem de suporte à resolução de um determinado problema. Assim, em software pode se definir como um conjunto de classes implementadas numa determinada linguagem de programação que permite ao utilizador o desenvolvimento de aplicações que ajudem a solucionar os seus problemas. Tem em conta o problema a resolver foram escrutinadas duas frameworks, SwitchYard\footnote{http://www.jboss.org/switchyard} e OSGi\footnote{http://www.osgi.org/Technology/HomePage}, das quais se apresentam as conclusões retiradas.
+
+A tecnologia OSGi é constituída por um conjunto de especificações que define um sistema modular e dinâmico de componentes em Java. É orientada a serviços e composta por uma arquitetura modular, com o intuito de reduzir ao máximo a sua complexidade e facilitar o desenvolvimento de grandes sistemas distribuídos. De seguida apresentam-se algumas especificidades que caracterizam esta framework:
+\begin{itemize}
+	\item Reusabilidade do código.
+	\item Modularidade da tecnologia através das suas componentes, denominadas bundles.
+	\item Ambiente de software colaborativo em que várias bundles podem executar na mesma máquina virtual e partilhar código.
+	\item API para gerir o ciclo de vida das bundles.
+	\item Serviços que ligam bundles de forma dinâmica.
+	\item Permite associação de componentes que tornam o código mais mais flexível e resiliente a mudanças.
+\end{itemize}
+
+Relativamente à framework SwitchYard, também em Java, fornece total suporte para o ciclo de desenvolvimento, \textit{deployment} e manutenção de uma aplicação orientada a serviços. Esta pode ser vista também como um Enterprise Service Bus, um modelo de arquitetura de software com o intuito de permitir o design e implementação de interação e comunicação entre aplicações de software numa arquitetura orientada a serviços. São enumeradas de seguidas as principais características desta tecnologia:
+\begin{itemize}
+	\item Constituído por componentes modulares.
+	\item Tem suporte de testes unitários para os serviços durante a fase de desenvolvimento.
+	\item Objetos Java como serviços através de anotação de Beans.
+	\item jBPM 5 e BPMN 2 permitem definir graficamente o processo de atividades e a integração do workflow humano.
+	\item Através da transformação declarativa o utilizador pode definir a transformação sobre dados e o tipo de dados a que se aplica, entre os quais pode escolher por exemplo Smooks, Java, XSLT ou JSON.
+	\item Permite definir o roteamento dos serviços através da utilização de Apache Camel.
+	\item Possui plugins para auxiliar no desenvolvimento de aplicações baseadas em Maven. 
+\end{itemize}
+
+Tendo em conta o escrutínio efetuado às duas frameworks pode-se concluir que ambas são indicadas para a implementação de aplicações orientadas a serviços, assentes na modularidade dos seus componentes, na comunicação e interação entre eles. Assim sendo a decisão sobre qual utilizar baseou-se não só nas características da aplicação a desenvolver, como também na atratividade e interesse que a framework suscita. Posto isto, devido à utilidade de ferramentas como o jBPM 5 e BPMN 2, a integração de testes unitários e da definição de roteamento de serviços, o \textbf{SwitchYard} foi a framework escolhida.
+
+
+\subsection{Maven}
+
+Maven\footnote{http://maven.apache.org/} é uma ferramenta utilizada essencialmente em projetos desenvolvidos em Java, com a função de automatizar a sua compilação, apesar de também permitir a criação de projetos noutra linguagens de programação como C\# ou Ruby. O Apache Maven, como também é denominado, é baseado no conceito Project Object Model (POM), que consiste num ficheiro XML que contém informação sobre o projeto e configurações necessárias para a sua construção. Neste ficheiro, denominado pom.xml, são especificadas as dependências sobre módulos, os componentes externos utilizados, definições de compilação, os seus diretórios e ainda plugins que sejam necessários.
+
+O Maven é responsável também pela gestão das dependências do projeto, ou seja, todas as dependências necessárias para a construção do projeto são especificadas no ficheiro POM e o Maven faz automaticamente o seu download através dos repositórios definidos pelo utilizador ou através dos repositórios padrão, sendo estes armazenados num repositório local.
+
+Existe uma grande parte das funcionalidades do Maven que apenas estão acessíveis através da instalação de um conjunto de plugins. As funcionalidades oferecidas por esta ferramenta, podem assim ser complementadas pela instalação de plugins que permitem efetuar tarefas como por exemplo executar um servidor web, geração de arquivos, testes, entre outras. Deste modo, os plugins do Maven podem então ser vistos como extensões do próprio.
+
+\subsection{JBoss}
+
+O JBoss\footnote{http://www.jboss.org/jbossas/} consiste num servidor de aplicações open-source criado por uma empresa com o mesmo nome e desenvolvido atualmente pela Red Hat. A JBoss (empresa) é uma divisão da Red Hat e consiste numa empresa especialista em desenvolvimento de middleware open-source.
+
+O servidor de aplicações JBoss é baseado na linguagem de programação Java, e consiste num software que fornece um ambiente completo para que outras aplicações sejam executadas dentro dele através de um conjunto de serviços fornecidos pelo próprio. Desta forma, aspetos como a ligação à base de dados, autenticação ou gestão de recursos disponíveis são garantidos pelo servidor de aplicações. 
+
+De salientar ainda que a framework SwitchYard consiste num projeto desenvolvido também pela empresa JBoss, com o intuito de substituir o seu antecessor JBoss ESB.
+
+\subsection{Hibernate }
+
+O Hibernate \footnote{http://hibernate.org/} é uma framework que permite fazer o mapeamento relacional de objetos em Java. Ou seja, a utilização desta framework permite que as tabelas da base de dados sejam representadas por classes da aplicação e as operações de recuperação e persistência de dados efetuadas através de métodos do Hibernate. Desta forma, o utilizador não tem que se preocupar com questões como a criação de instruções em SQL, nem com a conversão da informação resultante.
+
+O principal objetivo do Hibernate consiste assim em diminuir a complexidade inerente ao desenvolvimento de uma aplicação que inclua a utilização de uma base de dados relacional, de forma a que a tarefa de ligação entra a base de dados e a aplicação a desenvolver seja o mais simples e automatizada possível para o utilizador.
+
+
+\subsection{Spring}
+
+O Spring \footnote{http://spring.io/} consiste numa framework desenvolvida para a plataforma Java que permite um modelo de programação e configuração abrangentes. O principal objetivo do Spring foca-se no suporte da infraestrutura da aplicação, assumindo essa responsabilidade e permitindo que os seus utilizadores se concentrem no \textit{business logic} da aplicação.
+
+Esta framework é baseada em dois padrões fundamentais: Inversão de Controlo e Injecção de Dependência. O primeiro determina que a sequência de chamadas de métodos é responsabilidade de um \textit{container} e não do programador como habitualmente. Relativamente à Injecção de Dependência, diretamente relacionada com a Inversão de Controlo, significa que as dependências entre os vários módulos é definida através de um \textit{container} responsável por injetar as dependências definidas em cada componente.
+
+A arquitetura do Spring é baseada em interfaces e POJOs que apresentam como características mecanismos de segurança e controle de transações. A framework oferece ainda diversos módulos aos seus utilizadores, como por exemplo módulos para desenvolvimento web ou acesso remoto.
+
+\subsection{JSP??/JSF}
+ 
