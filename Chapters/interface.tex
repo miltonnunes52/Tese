@@ -12,27 +12,71 @@ O modelo MVC, utilizado no desenvolvimento desta interface Web, divide assim os 
 
 \section{Tipos de Acesso}
 
-A interface web criada para complementar a utilização da arquitetura foi desenhada com dois níveis de acesso para os seus utilizadores. Desta forma, os dois tipos de perfis existentes terão permissão de acesso a diferentes funcionalidades e informações da plataforma. Esta divisão de permissões em apenas dois níveis baseia-se na necessidade de ter um acesso para o utilizador comum consultar as suas informações, e o outro acesso para o administrador conseguir consultar todos os conteúdo da disponíveis na plataforma.
+A interface web criada para complementar a utilização da arquitetura foi desenhada com dois níveis de acesso para os seus utilizadores. Desta forma, os dois tipos de perfis existentes terão permissão de acesso a diferentes funcionalidades e informações da plataforma. Esta divisão de permissões em apenas dois níveis baseia-se na necessidade de ter um acesso para o utilizador comum consultar as suas informações e registos, e o outro acesso para o administrador conseguir consultar todos os conteúdo da disponíveis na plataforma.
 
 O acesso com maior nível corresponde assim às permissões de administração. Este nível de acesso disponibiliza um conjunto alargado de informações sobre os utilizadores da arquitetura, dos seus registos de monitorização e ainda sobre os sensores conectados à arquitetura bem como o seu funcionamento. Este perfil de utilizador corresponde ao tipo de acesso mais elevado definido para esta interface e apenas um conjunto restrito de utilizadores devem ter acesso a estes conteúdos.
 
-[imagem de acesso de admin]
+ \begin{figure}[htb]
+   \centering
+   \includegraphics[scale=0.29]{Images/panel.png}
+   \caption{Página principal de Administrador}
+\end{figure}
 
-O outro nível de acesso implementado corresponde ao acesso atribuído aos utilizadores comuns da arquitetura. Através do seu acesso à interface os utilizadores da arquitetura conseguem aceder às suas informações pessoais e a todos os dados relacionados com a sua monitorização. Deste modo, tem acesso todos os seus registos de monitorização apresentada de diferentes formas e pode ainda efetuar consultas sobre todo o seus histórico. Este nível representa um acesso mais restrito que o anterior, visto que limita os dados apresentados apenas aos correspondentes ao próprio utilizador e aos seus registos de monitorização.
+O outro nível de acesso implementado corresponde ao acesso atribuído aos utilizadores comuns da arquitetura. Através do seu acesso à interface os utilizadores da arquitetura conseguem aceder às suas informações pessoais e a todos os dados relacionados com a sua monitorização. Deste modo, tem acesso a todos os seus registos de monitorização apresentada de diferentes formas e pode ainda efetuar consultas sobre todo o seus histórico. Este nível representa um acesso mais restrito que o anterior, visto que limita os dados apresentados apenas aos correspondentes ao próprio utilizador e aos seus registos de monitorização.
 
-[imagem de acesso de user normal]
+ \begin{figure}[htb]
+   \centering
+   \includegraphics[scale=0.29]{Images/home.png}
+   \caption{Página principal de Utilizador}
+\end{figure}
 
-\section{Histórico de Utilizador}
+\section{Histórico de User/Resultados Monitorização}
 
 No contexto de utilização da arquitetura por parte de um utilizador, este sentirá grande interesse em poder consultar e analisar o que resultou da sua monitorização. Deste modo, uma das preocupações no desenvolvimento da interface foi fornecer aos utilizadores acesso a todo o seu histórico de registos provenientes da utilização da arquitetura desenvolvida. Cada utilizador terá assim na sua área pessoal acesso total a todo o conteúdo de informação recolhida e processada pela arquitetura. Para além disso terá ainda disponível diversas formas de acesso e apresentação da informação, com o intuito de que os seus utilizadores possam tirar o máximo de proveito do seu histórico de registos.
 
-...
+Assim para além das informações mais genéricas apresentados a cada utilizador no seu painel principal, este poderá aceder a duas áreas da interface nas quais poderá consultar todos os seus registos de monitorização. A diferenças entre estas duas áreas reside na forma de apresentação da informação. Na primeira área o utilizador poderá aceder aos seus registos sob a forma de tabela, selecionando o tipo de dados que pretende consultar e uma métrica associada ao tipo de dado escolhido. No caso de esse tipo de dados não conter nenhuma métrica disponível na arquitetura a informação será apresentada em bruto, tal como foi recolhida pelo dispositivo responsável pela monitorização. Para além disso, o utilizador poderá ainda escolher o período de monitorização que pretende, existente relativamente aos dois parâmetros já definidos.
 
-\section{Resultados de Monitorização}
+ \begin{figure}[htb]
+   \centering
+   \includegraphics[scale=0.29]{Images/tables.png}
+   \caption{Página de tabelas de registos de monitorização da interface}
+\end{figure}
 
-Os resultados da monitorização efetuada por cada utilizador da plataforma são essencialmente registos armazenados numa base de dados, provenientes dos dados de recolhidos pelos sensores e processados pelos serviços integrados na arquitetura. Importa para o utilizador comum conseguir visualizar estes registos e concluir sobre estes. Perante essa necessidade do utilizador foram pensadas quais as melhores formas de apresentar essa informação. Com base nas características dos utilizadores da arquitetura e dos próprios registos resultantes de todo o processo de recolha e tratamento da informação já apresentado foram desenvolvidos um conjunto de formas de apresentação dos resultados ao utilizador. Estas formas de apresentação de resultados visam oferecer uma visualização e apresentação simples e intuitiva para melhor compreensão da informação.
+A segunda área de apresentação dos registos de monitorização disponibilizada trata-se da apresentação de resultados através de gráficos. Este forma de apresentação é bastante útil para os utilizadores pois permitem-lhe ter uma noção gráfica mais clara dos seus registos e variações comportamentais ao longo do período de monitorização. Esta área oferece assim uma forma mais simples de visualização e interpretação dos resultados. Tal como na área composta por tabelas, o utilizador poderá selecionar o tipo de dados, uma métrica associada e a data do período a visualizar. Neste caso em particular apenas os tipos de dados com métricas associadas serão apresentados devido à dificuldade em gerar gráficos através de informação em bruto.
 
-....
+ \begin{figure}[htb]
+   \centering
+   \includegraphics[scale=0.29]{Images/graphs.png}
+   \caption{Página de gráficos de registos de monitorização da interface}
+\end{figure}
+
+
+\section{Administração/Funcionalidades}
+
+Relativamente às funcionalidades de administração, estas residem sobretudo no acesso a informação privilegiada. Tem como principal objetivo acompanhar a utilização da arquitetura e poder aceder a informações relativas a essa utilização. Desta forma, para além dos dados estatísticos apresentados no painel de administração, no qual pode, por exemplo, saber que utilizadores estão a ser monitorizados e quais os sensores utilizados no momento, o administrador tem acesso a outros conteúdos relevantes.
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics[scale=0.29]{Images/users.png}
+   \caption{Página de consulta de utilizadores da arquitetura}
+\end{figure}
+
+Cada administrador do sistema poderá consultar os dados de todos os utilizadores do sistema, podendo ver não só os seus dados, como também saber o número de monitorizações efetuado por cada um. Para além das informações relativas a utilizadores da arquitetura, o administrador tem também acesso as registos dos sensores utilizados na arquitetura, independentemente do momento da sua utilização e ainda à lista de todas as métricas integradas na arquitetura. Todo este conjunto de funcionalidades permite a cada administrador acompanhar a utilização da arquitetura e aceder a dados fundamentais sobre esta.
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics[scale=0.29]{Images/sensores.png}
+   \caption{Página de consulta de sensores registados na arquitetura}
+\end{figure}
 
 
 \section{Conclusão}
+
+O padrão de desenvolvimento utilizado no desenvolvimento desta plataforma revelou-se bastante útil e contribui para o rápido desenvolvimento da interface. A separação de componentes da aplicação e tratamento de cada função em específica na respetiva camada contribui para a simplificação do desenvolvimento da interface e consequentemente tornou o processo mais rápido e intuitivo. Apesar de não se tratar de uma aplicação com elevada complexidade, o potencial e capacidade deste padrão ficou bem patente no processo de desenvolvimento e demonstrou o porquê da utilização massiva deste padrão atualmente.
+
+Quanto à interface construída, esta terá grande utilidade não só para os seus utilizadores e da arquitetura, como também para os administradores da aplicação. O objetivo consistia em abranger ao máximo a arquitetura e a sua informação, não só resultante da monitorização mas também toda a que diretamente está relacionada com isso e com o funcionamento da arquitetura.  Objetivo esse que de certa forma foi alcançado, sendo possível aos seus utilizadores aceder aos dados mais relevantes da arquitetura consoante o seu nível de acesso à interface.
+
+No caso concreto da apresentação dos dados relativos à monitorização e estatísticas diretamente relacionadas, estas foram implementadas da forma idealizada. Os dados estatísticos presentes nas páginas principais de cada tipo de utilizador dão pequenas informações importantes sobre a utilização da arquitetura, tanto relativamente ao utilizador em questão como ao funcionamento de todos os utilizadores. Quanto às formas de apresentação dos resultados de monitorização foram desenvolvidas com o intuito de permitir ao utilizador aceder de forma mais genérica e de fácil visualização e interpretação aos registos através dos gráficos. E no caso do utilizador pretender uma verificação e análise mais pormenorizada através das tabelas de registos. Todas estas funcionalidades foram implementadas com o intuito de permitir um acesso simples e prático a este conjunto de dados fundamentais.
+
+Assim pode-se concluir da interface criada que se trata de uma ferramenta extremamente útil e que serve como complemento à arquitetura e às suas funcionalidades. Tendo por base uma arquitetura que permite a recolha de diferentes tipos de informação de forma distribuída e tratamento e agregação da mesma, havia a necessidade de criar uma ferramenta de consulta dos dados resultantes. Através da interface desenvolvida os utilizadores da arquitetura podem assim consultar de forma simples e intuitiva o resultado das suas monitorizações e informação relacionada. Esta interface web permite também comprovar a funcionalidade da arquitetura e verificar a sua capacidade de recolha e gestão da informação.
+
