@@ -122,7 +122,7 @@ Os serviços de métricas disponíveis na arquitetura estão diretamente relacio
 Posto isto, foram integrados na arquitetura um conjunto de tipos de métricas que pretendem  complementar a capacidade de agregação de informação da arquitetura, permitindo que esta possa ser analisada sob vários parametros e de diferentes formas. De seguida são então apresentados os tipos de métricas integradas na arquitetura neste momento, uma pequena descrição de cada métrica e ainda o tipo de dados a que cada uma se encontra associado.
 
 \begin{center}
-    \begin{tabular}{ | p{4cm} | l | p{7cm} |}
+    \begin{longtable}{ | p{4cm} | l | p{7cm} |}
     \hline
     Nome & Tipo Dados & Descrição \\ \hline
     Key Down Time & Teclado & Tempo durante o qual uma tecla é pressionada. \\ \hline    		    Time Between Keys & Teclado & Tempo percorrido entre duas teclas pressionadas. \\ \hline
@@ -136,10 +136,16 @@ Posto isto, foram integrados na arquitetura um conjunto de tipos de métricas qu
     Signed Sum of Angles & Rato & Pretende determinar se o movimento do rato tende a desviar mais para a direita ou para a esquerda. \\ \hline
     Absolute Sum of Angles & Rato & Pretende quantificar o desvio do movimento do rato independentemente da sua direção. \\ \hline
     Distance Between Clicks & Rato & Representa a distância total percorrida entre dois cliques consecutivos. \\ \hline
-    \end{tabular}
+    Click Duration & Rato  & Tempo percorrido entre pressionar e levantar em cada clique do rato. \\ \hline
+   Distance During Clicks &  Rato &  Distância total percorrida entre pressionar e levantar em cada clique do rato.\\ \hline
+   Excess of Distance Between Clicks & Rato  & Calcula o excesso de distância percorrido entre dois cliques do rato. \\ \hline
+   Pause Use & Rato/Teclado  & Calcula o número de vezes que o rato/teclado não é utilizado. \\ \hline
+   Writing Velocity & Teclado  & O número de teclas pressionadas por intervalo de tempo. \\ \hline
+   Writing Acceleration & Teclado  & A velocidade do rato por intervalo de tempo. \\ \hline
+    \end{longtable}
 \end{center}
 
-Faltam aqui os dois do acelerometro e meter citacao 
+
 
 \section{Comunicação com Serviços de Métricas}
 
@@ -181,6 +187,14 @@ Para controlar a ocorrência destas situações foi estabelecido uma comunicaç�
 O endereço de comunicação utilizado é o endereço URL fornecido por cada serviço no momento da conexão à arquitetura. Como resposta cada nodo deverá enviar um objeto JSON semelhante, contendo o atributo \textit{status} o código 200 caso este pretenda confirmar a permanência da conexão ou o código 410 caso esta pretenda terminar a ligação. Pode ainda ocorrer um terceiro cenário, no qual o nodo não responda em tempo útil, dando-se uma situação de \textit{timeout}, sendo o nodo eliminado da lista de serviços conectados nesse momento.
 
 Todo este processo de verificação de serviços ligados à arquitetura é repetido de forma frequente e periódica pela arquitetura para garantir que não existe um acumular de serviços que já terminaram o seu período de monitorização, sem que a unidade central tenha conhecimento disso e possa por em causa o correto funcionamento da arquitetura.
+
+\section{Cenários de Utilização}
+
+Existe um vasto conjunto de cenários em que a arquitetura descrita neste capítulo pode ser utilizada e revelar-se extremamente útil. Esta arquitetura dada as suas caraterísticas pode, por exemplo, ser utilizada em diversos cenários em que se pretende analisar variações comportamentais e de performance em ambientes profissionais ou de teste. Os resultados obtidos podem também ser utilizados para deteção de situações como fadiga ou stress. Na sequência destas possibilidades os registos e comportamentos monitorizados podem ser utilizados para encontrar formas que levem à diminuição de ocorrência destes fatores em determinadas situações e promover assim o bem estar dos seus utilizadores.
+
+Relativamente a cenários de utilização em concreto podem ser apontados vários. Um exemplo que revela a utilidade e potencial deste trabalho é a utilização da arquitetura na monitorização dos empregados de uma empresa. Neste caso podem se recolhidas informações sobre o comportamento de todos os empregados e fazer análises comparativas e individuais da performance e comportamento com o intuito de encontrar formas de potencializar o rendimento dos seus empregados. Outra situação em que a arquitetura pode ser utilizada é na monitorização de jogadores de computador, podendo recolher informação sobre o seu comportamento e situações que levem a alterações de comportamento ou sinais da ocorrência de stress. A monitorização da reação de indivíduos ao ouvirem determinado tipo de música é outro cenário muito interessante para a utilização da arquitetura dado que permite registar a forma como cada um reage perante diferentes estilos e músicas. O que permite retirar conclusões que podem ser utilizadas em diversas áreas.
+
+Os vários cenários de utilização descritos são apenas exemplos dum vasto leque que compravam a utilidade desta arquitetura e demonstram o potencial que esta revela em áreas extremamente diversificadas. Isto constata que esta solução poderá ter um contributo importante e de grande utilidade em vários contextos.
 
 \section{Conclusão}
 
