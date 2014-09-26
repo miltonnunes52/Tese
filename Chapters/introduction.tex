@@ -8,7 +8,7 @@ Um exemplo prático que retrata este tipo de situações é por exemplo a monito
 \section{Motivação}
 O registo da informação ambiente que é por diversas vezes desaproveitada, pode ser feito através do recurso a dispositivos eletrónicos como os sensores. Estes dispositivos, de fácil acesso e utilizado nos mais diversos contextos, têm a capacidade de identificar e responder a estímulos de forma a convertê-los em sinais que podem assim ser registados e armazenados\cite{akyildiz2002wireless}. 
 
-Existe atualmente no mercado um conjunto bastante diversificado de sensores, capazes de identificar vários tipos de indicadores, como os sensores de luz, movimento ou temperatura. Uma das grande vantagens deste tipo de dispositivos é a diversidade de indicadores que estes permitem identificar e registar. Contudo este potencial proporcionado pela diversidade de sensores não é ainda suficientemente aproveitado, dado que a utilização destes dispositivos é feito na maior parte das vezes de forma isolada, descurando-se assim a possibilidade de estabelecer uma relação entre os vários indicadores levantados e construir uma visão global \cite{salber1999designing} sobre a informação presente num ambiente que se pretende inteligente \cite{ducatel2001scenarios, ducatel2003ambient}.
+Existe atualmente no mercado um conjunto bastante diversificado de sensores, capazes de identificar vários tipos de indicadores, como os sensores de luz, movimento ou temperatura. Uma das grandes vantagens deste tipo de dispositivos é a diversidade de indicadores que estes permitem identificar e registar. Contudo este potencial proporcionado pela diversidade de sensores não é ainda suficientemente aproveitado, dado que a utilização destes dispositivos é feito na maior parte das vezes de forma isolada, descurando-se assim a possibilidade de estabelecer uma relação entre os vários indicadores levantados e construir uma visão global \cite{salber1999designing} sobre a informação presente num ambiente que se pretende inteligente \cite{ducatel2001scenarios, ducatel2003ambient}.
 
 Assim, este trabalho é motivado pela criação de uma arquitetura que possa colmatar esta questão. Dessa forma pretende-se integrar numa arquitetura sensores de diversos tipos, de forma distribuída, capaz de recolher vários tipos de indicadores e armazenar essa informação. Esta arquitetura vem resolver o problema da dispersão dos dados e permitir a \textbf{monitorização de um ambiente inteligente}, disponibilizando por fim um vasto leque de informações recolhidas através dos dispositivos integrados.
 
@@ -45,7 +45,6 @@ Posto isto, enumera-se de seguida os principais objetivos a alcançar com este t
   \item Agregar toda a informação proveniente dos vários serviços numa unidade central.
   \item Identificar a existência de novos serviços e integrá-los automaticamente na arquitetura.
   \item Fazer a gestão dos dados armazenados na unidade central.
-  \item Garantir a segurança da informação armazenada.
   \item Desenvolver uma página web na qual os utilizadores consigam aceder aos seus dados.
   \end{itemize}
 
@@ -57,11 +56,17 @@ Através da utilização da informação recolhida, o CAMCoF pretende ainda dese
 
 \section{Estrutura do Documento}
 
-Estruturalmente este documento encontram-se dividido em três capítulos abordando cada um dos seguintes temas: Ambientes Inteligentes, Arquitetura Orientada a Serviços e Planeamento de Investigação. 
+Estruturalmente este documento encontram-se dividido em sete capítulos abordando cada um dos seguintes temas: Ambientes Inteligentes, Arquitetura Orientada a Serviços, Arquitetura Desenvolvida, Caso de Estudo, Interface Web e Conclusões e Trabalho Realizado. 
 
-No capítulo 1 referente aos Ambientes Inteligentes é explicado em que consistem, a importância da Informação Ambiente, a sua função como um serviço apresentado aos seus utilizadores, em que consiste a Monitorização e ainda alguns exemplos de Sistemas de Monitorização existentes e quais as suas características.
+O capítulo seguinte refere-se aos Ambientes Inteligentes no qual é abordado em que consistem, a importância da Informação Ambiente, a sua função como um serviço apresentado aos seus utilizadores, em que consiste a Monitorização e ainda alguns exemplos de Sistemas de Monitorização existentes e quais as suas características.
 
-O capítulo seguinte define em que consiste uma Arquitetura Orientada a Serviços, as características da arquitetura definida, a importância da utilização de sensores na arquitetura, a forma como a informação é armazenada, as tecnologias utilizadas e ainda algumas decisões tomadas no que ao contexto tecnológico diz respeito, bem como o fundamento dessas decisões.
+O capítulo 3 define em que consiste uma Arquitetura Orientada a Serviços, as características da arquitetura definida, a importância da utilização de sensores na arquitetura, a forma como a informação é armazenada, as tecnologias utilizadas e ainda algumas decisões tomadas no que ao contexto tecnológico diz respeito, bem como o fundamento dessas decisões.
 
-No último capítulo, Planeamento da Investigação, é apresentado a Metodologia de Investigação utilizada, bem como a calendarização definida e é ainda descrito o ponto de situação do trabalho neste momento.
+O quarto capítulo aborda toda as questões relacionadas com a implementação da arquitetura, nomeadamente todas as decisões tomadas, métodos utilizados na implementação de comunicação, armazenamento de dados e assuntos relacionados.
+
+O capítulo 5 apresenta o caso de estudo efetuada para demonstrar a funcionalidade, utilidade e características da aplicação desenvolvida. São apresentadas todas os pressupostos definidos para a experiência e ainda todos os resultados obtidos através deste estudo.
+
+O sexto capítulo apresenta a interface Web desenvolvida para que os utilizadores da plataforma consigam aceder aos seus dados. Neste capítulo é apresentado o padrão de desenvolvimento utilizado, os tipos de acesso de utilizadores implementados, os resultados de monitorização dos utilizadores e ainda as funcionalidades de administração existentes.
+
+No último capítulo, Conclusões e Trabalho Realizado, são apresentadas todas as conclusões e síntese do trabalho realizado nesta dissertação e ainda alguns pontos para trabalho futuro que aumentariam a qualidade da solução apresentada.
 
