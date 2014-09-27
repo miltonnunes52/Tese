@@ -33,14 +33,14 @@ A utilização de vários sensores para recolha de informação e a importância
 
 \section{Objetivos}
 
-O objetivo deste trabalho é desenvolver uma arquitetura composta por vários tipos de sensores distribuídos para a monitorização dos seus utilizadores e consequente recolha de informação ambiente. Para isto será necessário implementar um conjunto alargado de serviços capazes de recolher diversos tipos de informação e tratar do seu envio para uma unidade central onde esta será armazenada. Com o intuito de construir uma arquitetura o mais abrangente possível, esta será composta por fontes de informação diversificadas podendo ter como origem dispositivos como computadores, dispositivos móveis e até unidades de biofeedback.
+O objetivo deste trabalho é desenvolver uma arquitetura composta por vários tipos de sensores distribuídos para a monitorização dos seus utilizadores e consequente recolha de informação ambiente. Para isso é necessário desenvolver métodos que permitam a cooperação de diferentes dispositivos capazes de recolher informação e tratar do seu envio para uma unidade central onde esta será armazenada. Com o intuito de construir uma arquitetura o mais abrangente possível, esta será composta por fontes de informação diversificadas podendo ter como origem dispositivos como computadores, dispositivos móveis e até unidades de biofeedback.
 
 A criação de uma unidade central onde a informação é armazenada deve-se ao facto de estruturalmente ser mais fácil processar e aceder os dados recolhidos. Desta forma os dados de cada utilizador tornam-se facilmente acessíveis, podendo ser analisados, comparados os diversos tipos de dados, verificadas as oscilações ocorridas e ainda constatar a evolução ao longo de todo o período de monitorização.
 
 Posto isto, enumera-se de seguida os principais objetivos a alcançar com este trabalho:
 \begin{itemize}
   \item Criar arquitetura composta por sensores distribuídos através da framework SwitchYard baseada na linguagem de programação Java.
-  \item Implementar serviços que recolham diferentes tipos de dados de vários sensores em tempo real.
+  \item Implementar métodos de comunicação que permitam a cooperação e a transmissão de dados entre os componentes da arquitetura.
   \item Assegurar a interoperabilidade dos diferentes componentes integrados na arquitetura.
   \item Agregar toda a informação proveniente dos vários serviços numa unidade central.
   \item Identificar a existência de novos serviços e integrá-los automaticamente na arquitetura.
