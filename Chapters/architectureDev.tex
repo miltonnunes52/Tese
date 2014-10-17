@@ -1,6 +1,6 @@
 \chapter{Arquitetura Desenvolvida}
 
-O principal objetivo desta dissertação passa pelo desenvolvimento de uma arquitetura que permita a agregação de diversos tipos de dados provenientes de diferentes tipos de sensores colocados de forma distribuída. Para tal foi necessário definir uma forma de ligação uniforme para que todos os tipos de sensores se conectassem à plataforma, bem como um \textit{standard} de comunicação de dados proveniente dos nodos da arquitetura. Foi ainda desenvolvida uma camada de persistência responsável por registar a informação em bruto e processada, sendo esta última o resultado do tratamento dos dados levantados pelos serviços de métricas integrados na plataforma. A arquitetura é também responsável pela gestão dos serviços que a ela se encontram ligados.
+O principal objetivo desta dissertação passa pelo desenvolvimento de uma arquitetura que permita a agregação de diversos tipos de dados provenientes de diferentes tipos de sensores colocados de forma distribuída. Para tal foi necessário definir uma forma de ligação uniforme para que todos os tipos de sensores se conectassem à plataforma, bem como um \textit{standard} de comunicação de dados proveniente dos nós da arquitetura. Foi ainda desenvolvida uma camada de persistência responsável por registar a informação em bruto e processada, sendo esta última o resultado do tratamento dos dados levantados pelos serviços de métricas integrados na plataforma. A arquitetura é também responsável pela gestão dos serviços que a ela se encontram ligados.
 
 \begin{figure}[htb]
    \centering
@@ -14,11 +14,11 @@ O desenvolvimento desta arquitetura está assente num princípio fundamental que
 
 Antes de explicar em pormenor como é que esta arquitetura garante a interoperabilidade dos seus componentes, importa definir exatamente em que consiste a interoperabilidade e o que define um sistema com esta característica. Assim, a interoperabilidade é capacidade de diversos componentes comunicarem de forma transparente garantindo a cooperação entre eles. Estes componentes tem, em várias situações, bases tecnológicas e características bastante diferentes, o que leva a necessidade de definição de padrões de comunicação abertos e com recurso a linguagens e protocolos comuns\cite{jammes2005service, song2009service}. Num sistema interoperável todos os seus componentes devem então, independentemente da sua diversidade e definição tecnológica, ser capazes de cooperar e comunicar de forma clara e transparente através da definição dos padrões e normas necessárias. A arquitetura implementada através dos padrões de comunicação definidos permite também a adição de forma automática de novos componentes, podendo estes, através das suas funcionalidades, acrescentar valor à arquitetura.
 
-Posto isto, o método de ligação dos sensores, que podem ser vistos como os nodos da arquitetura responsáveis pela recolha de dados, à arquitetura foi definido de modo a garantir este conjunto de pressupostos apresentado. Foi então padronizado que os novos nodos para efetuarem a sua ligação à arquitetura devem enviar uma mensagem com um objeto JSON através do método POST para o seguinte endereço URL:
+Posto isto, o método de ligação dos sensores, que podem ser vistos como os nós da arquitetura responsáveis pela recolha de dados, à arquitetura foi definido de modo a garantir este conjunto de pressupostos apresentado. Foi então padronizado que os novos nós para efetuarem a sua ligação à arquitetura devem enviar uma mensagem com um objeto JSON através do método POST para o seguinte endereço URL:
 
-http://127.0.0.1:8080/CAMCoF/send/connect
+http://islab.di.uminho.pt:36001/CAMCoF/send/connect
 
-O objeto a enviar pelo nodo que pretende conectar-se à arquitetura deve conter um conjunto de informações sobre o sensor de modo a que a arquitetura o consiga identificar e registar como um novo sensor da arquitetura. O objeto JSON deve assim conter o identificador do utilizador fornecido no momento de registo do utilizador na interface desenvolvida para a arquitetura, um endereço de comunicação do serviço para o qual a unidade central da arquitetura possa comunicar, um identificador do sensor, o tipo de serviço de monitorização oferecido pelo sensor, a frequência de comunicação de dados, o tipo de dados a enviar e ainda uma descrição do serviço.
+O objeto a enviar pelo nó que pretende conectar-se à arquitetura deve conter um conjunto de informações sobre o sensor de modo a que a arquitetura o consiga identificar e registar como um novo sensor da arquitetura. O objeto JSON deve assim conter o identificador do utilizador fornecido no momento de registo do utilizador na interface desenvolvida para a arquitetura, um endereço de comunicação do serviço para o qual a unidade central da arquitetura possa comunicar, um identificador do sensor, o tipo de serviço de monitorização oferecido pelo sensor, a frequência de comunicação de dados, o tipo de dados a enviar e ainda uma descrição do serviço.
 
 \begin{lstlisting}[caption=Exemplo de objeto JSON enviado por Sensor de Teclado]
 {
@@ -32,7 +32,7 @@ O objeto a enviar pelo nodo que pretende conectar-se à arquitetura deve conter 
 }
 \end{lstlisting}
 
-A unidade central perante a informação recebida inicia um processo de verificação da informação. Em primeiro lugar verifica se o identificador do sensor recebido corresponde a um sensor já utilizado na arquitetura, se não for este o caso o novo sensor será registado. Deste modo existe apenas um registo por cada sensor utilizado na arquitetura independentemente da sua utilização em vários momentos e do utilizador em questão. De seguida é registado o novo nodo da arquitetura, definido essencialmente pelo endereço de comunicação e pelo registo do sensor utilizado. Por fim, é criado o registo de monitorização ao qual serão associados os vários registos posteriormente levantados e enviados pelo nodo em questão.
+A unidade central perante a informação recebida inicia um processo de verificação da informação. Em primeiro lugar identifica-se se o sensor recebido corresponde a um sensor já utilizado na arquitetura, se não for este o caso o novo sensor será registado. Deste modo existe apenas um registo por cada sensor utilizado na arquitetura independentemente da sua utilização em vários momentos e do utilizador em questão. De seguida é registado o novo nó da arquitetura, definido essencialmente pelo endereço de comunicação e pelo registo do sensor utilizado. Por fim, é criado o registo de monitorização ao qual serão associados os vários registos posteriormente levantados e enviados pelo nó em questão.
 
 \begin{figure}[htb]
    \centering
@@ -40,7 +40,7 @@ A unidade central perante a informação recebida inicia um processo de verifica
    \caption{BPMN de conexão à arquitetura}
 \end{figure}
 
-Concluído este processo é enviada uma resposta ao pedido de conexão. Em caso de sucesso do pedido, independentemente do sensor já se encontrar registado previamente na arquitetura ou não, o novo nodo receberá como resposta um objeto JSON que será composto por um código de confirmação da integração do serviço na arquitetura e por um endereço através do qual o sensor deverá comunicar os dados a recolher durante a monitorização.\\
+Concluído este processo é enviada uma resposta ao pedido de conexão. Em caso de sucesso do pedido, independentemente do sensor já se encontrar registado previamente na arquitetura ou não, o novo nó receberá como resposta um objeto JSON que será composto por um código de confirmação da integração do serviço na arquitetura e por um endereço através do qual o sensor deverá comunicar os dados a recolher durante a monitorização.\\
 
 \begin{lstlisting}[caption=Mensagem de sucesso em JSON]
 {
@@ -49,7 +49,7 @@ Concluído este processo é enviada uma resposta ao pedido de conexão. Em caso 
 }
 \end{lstlisting}
 
-No caso de se verificar algum problema com os dados enviados na mensagem de conexão à arquitetura, como por exemplo o identificador do utilizador não existir, ou de este nodo já se encontrar registado na arquitetura, a resposta obtida será uma mensagem a reportar o conflito ocorrido.\\
+No caso de se verificar algum problema com os dados enviados na mensagem de conexão à arquitetura, como por exemplo o identificador do utilizador não existir, ou de este nó já se encontrar registado na arquitetura, a resposta obtida será uma mensagem a reportar o conflito ocorrido.\\
 
 \begin{lstlisting}[caption=Mensagem de conflito em JSON]
 {
@@ -61,16 +61,16 @@ No caso de se verificar algum problema com os dados enviados na mensagem de cone
 
 \section{Comunicação de Dados}
 
-Definido o método de ligação dos nodos da arquitetura, importa estabelecer a forma como os dados recolhidos pelos sensores são enviados para a unidade central onde serão posteriormente tratados e armazenados. A comunicação da informação implementada na plataforma pretende garantir um método simples e fiável de transmissão dos dados de modo a que a informação possa ser gerida na unidade central. O feedback desta operação é também comunicada ao nodo da arquitetura responsável pela recolha da informação, para que este tenha conhecimento do estado deste processo em particular.
+Definido o método de ligação dos nós da arquitetura, importa estabelecer a forma como os dados recolhidos pelos sensores são enviados para a unidade central onde serão posteriormente tratados e armazenados. A comunicação da informação implementada na plataforma pretende garantir um método simples e fiável de transmissão dos dados de modo a que a informação possa ser gerida na unidade central. O feedback desta operação é também comunicada ao nó da arquitetura responsável pela recolha da informação, para que este tenha conhecimento do estado deste processo em particular.
 
-Na sequência do método implementado para a ligação dos nodos da arquitetura e de forma a garantir também os parâmetros definidos para a comunicação da informação, esta operação estará exclusivamente disponível para os nodos conectados através do seguinte seguinte endereço URL:
+Na sequência do método implementado para a ligação dos nós da arquitetura e de forma a garantir também os parâmetros definidos para a comunicação da informação, esta operação estará exclusivamente disponível para os nós conectados através do seguinte seguinte endereço URL:
 
-http://127.0.0.1:8080/CAMCoF/send/id\_utilizador/id\_sensor
+http://islab.di.uminho.pt:36001/CAMCoF/send/id\_utilizador/id\_sensor
 
-Este endereço foi definido de acordo com as informações registadas para cada nodo da arquitetura. Isto é, para cada nodo o \textit{id\_utilizador} irá corresponder ao identificador do utilizador registado na plataforma e o \textit{id\_sensor} ao identificador do sensor utilizado, informação essa registada no processo de conexão à arquitetura já apresentado neste capítulo.
+Este endereço foi definido de acordo com as informações registadas para cada nó da arquitetura. Isto é, para cada nó o \textit{id\_utilizador} irá corresponder ao identificador do utilizador registado na plataforma e o \textit{id\_sensor} ao identificador do sensor utilizado, informação essa registada no processo de conexão à arquitetura já apresentado neste capítulo.
 
 Relativamente aos dados a enviar, estes são enviados sob a forma de uma String através do método POST. O exemplo abaixo representa um pequeno excerto de um registo de dados levantado por um sensor de movimento do rato sob a forma de uma String, que foi posteriormente enviada para a unidade central da arquitetura.\\
-\begin{lstlisting}[caption=Excerto de dados levantado por sensor de movimento de rato]
+\begin{lstlisting}[caption=Excerto de dados fornecidos pelo movimento do rato]
 MOV,63526767801398,None,599,36
 MOV,63526767801404,None,600,36
 MOV,63526767801416,None,601,36
@@ -81,7 +81,7 @@ MU,63526767801925,Left,602,36
 \end{lstlisting}
 
 
-Tendo em conta que este processo de comunicação da informação levantada pelos sensores é fundamental para o funcionamento da arquitetura, importa garantir que nenhum registo é perdido neste processo de comunicação. Posto isto, foi definido uma resposta padrão enviada pela unidade central para o nodo responsável pelo envio da informação dando conta do sucesso da operação. Assim, apenas no momento da receção dessa resposta o nodo poderá registar esse processo como concluído e avançar para a tarefa seguinte. Caso esta resposta não chegue, o nodo deve reenviar os dados para que esta possa ser registada. Abaixo apresenta-se o objeto JSON enviado pela unidade central dando conta do sucesso da operação de comunicação, como o próprio código presente no objeto indica.\\
+Tendo em conta que este processo de comunicação da informação levantada pelos sensores é fundamental para o funcionamento da arquitetura, importa garantir que nenhum registo é perdido neste processo de comunicação. Posto isto, foi definido uma resposta padrão enviada pela unidade central para o nó responsável pelo envio da informação dando conta do sucesso da operação. Assim, apenas no momento da receção dessa resposta o nó poderá registar esse processo como concluído e avançar para a tarefa seguinte. Caso esta resposta não chegue, o nó deve reenviar os dados para que esta possa ser registada. Abaixo apresenta-se o objeto JSON enviado pela unidade central dando conta do sucesso da operação de comunicação, como o próprio código presente no objeto indica.\\
 
 \begin{lstlisting}[caption=Mensagem de sucesso em JSON]
 {
@@ -93,13 +93,13 @@ Tendo em conta que este processo de comunicação da informação levantada pelo
 Se a tentativa de comunicação for efetuada por um serviço que não se encontre, no momento, ligado à arquitetura o objeto de resposta contém o código 403, informando que este não tem permissões para estabelecer essa comunicação.
 
 
-\section{Registo de Informação em bruto}
+\section{Registo de Dados em Bruto}
 
 A informação recolhida pelos sensores que constituem a arquitetura deve ser armazenada para que posteriormente seja possível tratar os dados e retirar conclusões sobre estes. Deste modo, a informação que os sensores conectados à arquitetura vão encaminhando para a unidade central é armazenada na base de dados antes de se iniciar qualquer tipo de operação sobre os dados. Nesta fase a informação é armazenada exatamente como foi registada pelos sensores, pelo que os registos correspondentes podem mais tarde ser consultados.
 
 O armazenamento da informação em estado bruto na base de dados da plataforma representa o primeiro nível de armazenamento de dados definido para o registo de informação proveniente dos sensores. Desta forma é possível ter, em qualquer momento, acesso à informação em bruto, caso esta seja necessária, avançando-se somente de seguida para o processamento dos dados com o recurso aos serviços de métricas. 
 
-O método de armazenamento dos dados implementado pretende assim o registo da informação na base de dados à medida que esta é enviada pelos nodos, em diferentes estados de tratamento. Esta primeira fase trata-se do início de um processo ao qual se segue o processamento da informação e posteriormente um novo registo da informação num outro nível. O objetivo deste método consiste em retirar o máximo de proveito da informação recolhida sobre o comportamento e ação do utilizador da arquitetura. 
+O método de armazenamento dos dados implementado pretende assim o registo da informação na base de dados à medida que esta é enviada pelos nós, em diferentes estados de tratamento. Esta primeira fase trata-se do início de um processo ao qual se segue o processamento da informação e posteriormente um novo registo da informação num outro nível. O objetivo deste método consiste em retirar o máximo de proveito da informação recolhida sobre o comportamento e ação do utilizador da arquitetura. 
 
 \begin{figure}[htb]
    \centering
@@ -141,8 +141,10 @@ Posto isto, foram integrados na arquitetura um conjunto de serviços de métrica
    Excess of Distance Between Clicks & Rato  & Calcula o excesso de distância percorrido entre dois cliques do rato. \\ \hline
    Pause Use & Rato/Teclado  & Calcula o número de vezes que o rato/teclado não é utilizado. \\ \hline
    Writing Velocity & Teclado  & O número de teclas pressionadas por intervalo de tempo. \\ \hline
-   Writing Acceleration & Teclado  & A velocidade do rato por intervalo de tempo. \\ \hline
+   Writing Acceleration & Teclado  & A velocidade de escrita por intervalo de tempo. \\ \hline
     \end{longtable}
+\captionof{table}{Serviços de métricas integrados na arquitetura} 
+
 \end{center}
 
 \subsection{Comunicação com Serviços de Métricas}
@@ -153,7 +155,7 @@ A comunicação estabelecida entre os serviços de métricas e a unidade central
 
 \begin{figure}[htb]
    \centering
-   \includegraphics[scale=0.5]{Images/metricsdiagram.png}
+   \includegraphics[scale=0.38]{Images/metricsdiagram1.png}
    \caption{Comunicação entre unidade central da arquitetura e serviços de métricas}
 \end{figure}
 
@@ -167,13 +169,13 @@ Este estado da informação é então armazenado na base de dados da aplicação
 
 \section{Verificação de Serviços Conectados}
 
-A arquitetura pode, em cada instante, ter vários sensores conectados a recolher informação para a unidade central. Dada esta situação torna-se relevante haver um controlo sobre o estado em que se encontra cada um dos sensores ligados ao longo do tempo. Com esse intuito e de forma a haver uma gestão eficiente dos nodos da arquitetura foi desenvolvida uma forma de gerir e controlar o estado destas ligações com o decorrer do tempo.
+A arquitetura pode, em cada instante, ter vários sensores conectados a recolher informação para a unidade central. Dada esta situação torna-se relevante haver um controlo sobre o estado em que se encontra cada um dos sensores ligados ao longo do tempo. Com esse intuito e de forma a haver uma gestão eficiente dos nós da arquitetura foi desenvolvida uma forma de gerir e controlar o estado destas ligações com o decorrer do tempo.
 
 Assim, tal como já foi abordado neste capítulo, à medida que cada sensor estabelece uma ligação à arquitetura, essa ligação para além de registada na base de dados, é também armazenada dinamicamente como um sensor que nesse instante se encontra ligado à arquitetura a recolher e transmitir novos dados. É sobre esse registo dinâmico que deve ser feito o controlo de ligação ao longo do tempo, para prevenir situações em que por algum motivo, ocorra um problema com um sensor e este pare de comunicar ou recolher informação, ou simplesmente termine o seu período de monitorização.
 
-Para controlar a ocorrência destas situações foi estabelecido uma comunicação periódica entre a unidade central e todos os sensores que se encontram conectados nesse momento, de modo a confirmar se estes se mantém ligados à arquitetura. Para tal é enviada uma mensagem JSON através do método POST, para cada um dos nodos, na qual é indicado o identificador do utilizador, o identificador do sensor em questão e que se trata de um pedido de informação sobre o seu estado.\\
+Para controlar a ocorrência destas situações foi estabelecido uma comunicação periódica entre a unidade central e todos os sensores que se encontram conectados nesse momento, de modo a confirmar se estes se mantém ligados à arquitetura. Para tal é enviada uma mensagem JSON através do método POST, para cada um dos nós, na qual é indicado o identificador do utilizador, o identificador do sensor em questão e que se trata de um pedido de informação sobre o seu estado.\\
 
-\begin{lstlisting}[caption=Mensagem de verificação de estado de um nodo]
+\begin{lstlisting}[caption=Mensagem de verificação de estado de um nó]
 {
 	"id" : "1236",
   	"sensorid" : "00:01:29:D3:95:C6",
@@ -182,7 +184,7 @@ Para controlar a ocorrência destas situações foi estabelecido uma comunicaç�
 
 \end{lstlisting}
 
-O endereço de comunicação utilizado é o endereço URL fornecido por cada nodo no momento da conexão à arquitetura. Como resposta cada nodo deverá enviar um objeto JSON semelhante, contendo o atributo \textit{status} o código 200 caso este pretenda confirmar a permanência da conexão ou o código 410 caso esta pretenda terminar a ligação. Pode ainda ocorrer um terceiro cenário, no qual o nodo não responda em tempo útil, dando-se uma situação de \textit{timeout}, sendo o nodo eliminado da lista de serviços conectados nesse momento.
+O endereço de comunicação utilizado é o endereço URL fornecido por cada nó no momento da conexão à arquitetura. Como resposta cada nó deverá enviar um objeto JSON semelhante, contendo o atributo \textit{status} o código 200 caso este pretenda confirmar a permanência da conexão ou o código 410 caso esta pretenda terminar a ligação. Pode ainda ocorrer um terceiro cenário, no qual o nó não responda em tempo útil, dando-se uma situação de \textit{timeout}, sendo o nó eliminado da lista de serviços conectados nesse momento.
 
 Todo este processo de verificação de serviços ligados à arquitetura é repetido de forma periódica pela arquitetura para garantir que não existe um acumular de serviços que já terminaram o seu período de monitorização, sem que a unidade central tenha conhecimento disso e possa por em causa o correto funcionamento da arquitetura.
 
@@ -194,11 +196,11 @@ Relativamente a cenários de utilização em concreto podem ser apontados vário
 
 Os diferentes cenários de utilização descritos são apenas exemplos dum vasto leque que compravam a utilidade desta arquitetura e demonstram o potencial que esta revela em áreas extremamente diversificadas. Isto constata que esta solução poderá ter um contributo importante e de grande utilidade em vários contextos.
 
-\section{Conclusão}
+\section{Conclusão/Sumário}
 
 O principal objetivo da arquitetura desenvolvida, tal como já foi abordado, consistia na construção de uma arquitetura que permitisse a recolha de informação através da utilização de sensores colocados de forma distribuída. Assim os sensores seriam capazes de monitorizar o comportamento dos utilizadores e permitir que esses dados fossem armazenados para posterior utilização e análise. Este objetivo, através das etapas percorridas e apresentadas neste capítulo, foi alcançado. A arquitetura desenvolvida permite que os seus utilizadores usem diversos dispositivos de recolha de informação, em diversos locais, contextos diferentes e através de fontes de informação diversificadas. Através da utilização desta arquitetura, os seus utilizadores têm garantias de fiabilidade e estabilidade de todo o sistema e ainda métodos de comunicação que garantem o correto funcionamento da arquitetura, bem como o armazenamento dos dados recolhidos.
 
-Uma das decisões tomadas, que teve grande influência no desenvolvimento da arquitetura, e que importa mais uma vez sublinhar foi a escolha da \textit{framework} SwitchYard para implementar a arquitetura. Esta decisão revelou-se uma aposta acertada pois o potencial identificado na análise feita à \textit{framework} acabou por se verificar e foi bastante útil durante o período de desenvolvimento. O SwitchYard, orientado para o desenvolvimento de aplicações orientadas a serviços, permitiu, através do vasto leque de componentes que dispõe, definir um design e implementação da comunicação entre os nodos da arquitetura e a unidade central, e desenvolver ainda as funcionalidades exigidas para essa unidade. Todo o processo de desenvolvimento beneficiou da utilização da \textit{framework}, podendo-se inclusivamente afirmar que este se revelou mais simples, orientado e rápido graças à escolha tomada.
+Uma das decisões tomadas, que teve grande influência no desenvolvimento da arquitetura, e que importa mais uma vez sublinhar foi a escolha da \textit{framework} SwitchYard para implementar a arquitetura. Esta decisão revelou-se uma aposta acertada pois o potencial identificado na análise feita à \textit{framework} acabou por se verificar e foi bastante útil durante o período de desenvolvimento. O SwitchYard, orientado para o desenvolvimento de aplicações orientadas a serviços, permitiu, através do vasto leque de componentes que dispõe, definir um design e implementação da comunicação entre os nós da arquitetura e a unidade central, e desenvolver ainda as funcionalidades exigidas para essa unidade. Todo o processo de desenvolvimento beneficiou da utilização da \textit{framework}, podendo-se inclusivamente afirmar que este se revelou mais simples, orientado e rápido graças à escolha tomada.
 
 Outro dos aspetos a salientar nesta arquitetura é a sua comunicação e a forma como esta é estabelecida nas várias tarefas executadas ao longo de todo o processo ao qual a informação recolhida é sujeita. Os métodos de comunicação estabelecidos e implementados permitem garantir que todo o fluxo pelo qual a informação passa seja efetuado de forma eficiente e fiável. O cuidado no desenho destes métodos de comunicação teve ainda por base garantir a interoperabilidade de todos os componentes da arquitetura. Deste modo, é possível afirmar que a arquitetura oferece aos seus utilizadores a capacidade de utilizar diversos tipos de sensores sem que isto coloque em causa o seu correto funcionamento. Cada utilizador pode assim recorrer aos sensores que entender, dado que os métodos de comunicação implementados permitem uma ligação eficiente destes dispositivos e a sua cooperação na execução das suas tarefas no contexto da arquitetura.
 
