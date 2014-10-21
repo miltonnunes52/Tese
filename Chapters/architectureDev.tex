@@ -61,7 +61,7 @@ No caso de se verificar algum problema com os dados enviados na mensagem de cone
 
 \section{Comunicação de Dados}
 
-Definido o método de ligação dos nós da arquitetura, importa estabelecer a forma como os dados recolhidos pelos sensores são enviados para a unidade central onde serão posteriormente tratados e armazenados. A comunicação da informação implementada na plataforma pretende garantir um método simples e fiável de transmissão dos dados de modo a que a informação possa ser gerida na unidade central. O feedback desta operação é também comunicada ao nó da arquitetura responsável pela recolha da informação, para que este tenha conhecimento do estado deste processo em particular.
+Definido o método de ligação dos nós da arquitetura, importa estabelecer a forma como os dados recolhidos pelos sensores são enviados para a unidade central onde serão posteriormente tratados e armazenados. A comunicação da informação implementada na plataforma pretende garantir um método simples e fiável de transmissão dos dados de modo a que a informação possa ser gerida na unidade central. O \textit{feedback} desta operação é também comunicada ao nó da arquitetura responsável pela recolha da informação, para que este tenha conhecimento do estado deste processo em particular.
 
 Na sequência do método implementado para a ligação dos nós da arquitetura e de forma a garantir também os parâmetros definidos para a comunicação da informação, esta operação estará exclusivamente disponível para os nós conectados através do seguinte seguinte endereço URL:
 
@@ -99,13 +99,15 @@ A informação recolhida pelos sensores que constituem a arquitetura deve ser ar
 
 O armazenamento da informação em estado bruto na base de dados da plataforma representa o primeiro nível de armazenamento de dados definido para o registo de informação proveniente dos sensores. Desta forma é possível ter, em qualquer momento, acesso à informação em bruto, caso esta seja necessária, avançando-se somente de seguida para o processamento dos dados com o recurso aos serviços de métricas. 
 
-O método de armazenamento dos dados implementado pretende assim o registo da informação na base de dados à medida que esta é enviada pelos nós, em diferentes estados de tratamento. Esta primeira fase trata-se do início de um processo ao qual se segue o processamento da informação e posteriormente um novo registo da informação num outro nível. O objetivo deste método consiste em retirar o máximo de proveito da informação recolhida sobre o comportamento e ação do utilizador da arquitetura. 
-
 \begin{figure}[htb]
    \centering
    \includegraphics[scale=0.6]{Images/SaveDataComponent.jpg}
    \caption{BPMN de armazenamento da informação enviada pelos sensores}
 \end{figure}
+
+O método de armazenamento dos dados implementado pretende assim o registo da informação na base de dados à medida que esta é enviada pelos nós, em diferentes estados de tratamento. Esta primeira fase trata-se do início de um processo ao qual se segue o processamento da informação e posteriormente um novo registo da informação num outro nível. O objetivo deste método consiste em retirar o máximo de proveito da informação recolhida sobre o comportamento e ação do utilizador da arquitetura. 
+
+
 
 \section{Integração de Serviços de Métricas}
 
@@ -194,9 +196,9 @@ Existe um vasto conjunto de cenários em que a arquitetura descrita neste capít
 
 Relativamente a cenários de utilização em concreto podem ser apontados vários. Um exemplo que revela a utilidade e potencial deste trabalho é a utilização da arquitetura na monitorização dos funcionários de uma empresa. Neste caso podem se recolhidas informações sobre o comportamento de cada funcionário e fazer análises comparativas e individuais da performance e comportamento com o intuito de encontrar formas de potencializar o seu rendimento. Outra situação em que a arquitetura pode ser utilizada é na monitorização de jogadores de computador, podendo recolher informação sobre o seu comportamento e situações que levem a alterações de comportamento ou sinais da ocorrência de stress. A monitorização da reação de indivíduos ao ouvirem determinado tipo de música é outro cenário muito interessante para a utilização da arquitetura dado que permite registar a forma como cada um reage perante diferentes faixas e estilos musicais. Este cenário poderá permitir retirar conclusões que podem ser utilizadas em diversas áreas.
 
-Os diferentes cenários de utilização descritos são apenas exemplos dum vasto leque que compravam a utilidade desta arquitetura e demonstram o potencial que esta revela em áreas extremamente diversificadas. Isto constata que esta solução poderá ter um contributo importante e de grande utilidade em vários contextos.
+Os diferentes cenários de utilização descritos são apenas exemplos dum vasto leque que comprovam a utilidade desta arquitetura e demonstram o potencial que esta revela em áreas extremamente diversificadas. Isto constata que esta solução poderá ter um contributo importante e de grande utilidade em vários contextos.
 
-\section{Conclusão/Sumário}
+\section{Conclusão}
 
 O principal objetivo da arquitetura desenvolvida, tal como já foi abordado, consistia na construção de uma arquitetura que permitisse a recolha de informação através da utilização de sensores colocados de forma distribuída. Assim os sensores seriam capazes de monitorizar o comportamento dos utilizadores e permitir que esses dados fossem armazenados para posterior utilização e análise. Este objetivo, através das etapas percorridas e apresentadas neste capítulo, foi alcançado. A arquitetura desenvolvida permite que os seus utilizadores usem diversos dispositivos de recolha de informação, em diversos locais, contextos diferentes e através de fontes de informação diversificadas. Através da utilização desta arquitetura, os seus utilizadores têm garantias de fiabilidade e estabilidade de todo o sistema e ainda métodos de comunicação que garantem o correto funcionamento da arquitetura, bem como o armazenamento dos dados recolhidos.
 

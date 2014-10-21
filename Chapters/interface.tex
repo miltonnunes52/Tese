@@ -8,7 +8,7 @@ No desenvolvimento da plataforma Web, através da qual os utilizadores poderão 
 
 Este torna-se extremamente útil, e consequentemente bastante utilizado, com o aumento da complexidade das aplicações a desenvolver. Este facto levou a que existisse a necessidade de separar conceitos de forma a simplificar o processo de desenvolvimento para os responsáveis pela construção destas plataformas. Deste modo, torna-se fundamental a separação entre os dados da aplicação e a camada de apresentação, garantindo assim que as alterações feitas no \textit{layout} não interferem com a manipulação dos dados e que estes podem ser modificados sem que isso tenha repercussões no \textit{layout}. Esta separação apenas é possível pela existência de um componente responsável pela intermediação entre os dois, o controlador\cite{bucanek2009model}.
 
-O modelo MVC, utilizado no desenvolvimento desta interface Web, divide assim os componentes da aplicação em três camadas: o \textit{Model} que representa os dados e o métodos de acesso e edição destes, a \textit{View} que corresponde à camada de visualização da aplicação, sendo a parte responsável pela iteração com os utilizadores. E por fim o \textit{Controller} que contém os métodos que processam os pedidos provenientes da \textit{view} e pode também invocar alterações no \textit{model}, funcionando como um controlador da aplicação e a ponte entre as duas camadas restantes. Desta forma é possível organizar de forma mais modular a arquitetura de uma aplicação web, centrando em cada camada única e exclusivamente as funções para as quais essa foi concebida, simplificando estruturalmente o desenvolvimento da aplicação.
+O modelo MVC, utilizado no desenvolvimento desta interface Web, divide assim os componentes da aplicação em três camadas: o \textit{Model} que representa os dados e o métodos de acesso e edição destes, a \textit{View} que corresponde à camada de visualização da aplicação, sendo a parte responsável pela iteração com os utilizadores. E por fim o \textit{Controller} que contém os métodos que processam os pedidos provenientes da \textit{View} e pode também invocar alterações no \textit{Model}, funcionando como um controlador da aplicação e a ponte entre as duas camadas restantes. Desta forma é possível organizar de forma mais modular a arquitetura de uma aplicação web, centrando em cada camada única e exclusivamente as funções para as quais essa foi concebida, simplificando estruturalmente o desenvolvimento da aplicação.
 
 \section{Tipos de Acesso}
 
@@ -18,7 +18,7 @@ O acesso com maior nível corresponde assim às permissões de administração. 
 
  \begin{figure}[htb]
    \centering
-   \includegraphics[scale=0.29]{Images/panel.png}
+   \includegraphics[scale=0.29]{Images/panel1.png}
    \caption{Página principal de Administrador}
 \end{figure}
 
@@ -26,19 +26,19 @@ O outro nível de acesso implementado corresponde ao acesso atribuído aos utili
 
  \begin{figure}[htb]
    \centering
-   \includegraphics[scale=0.29]{Images/home.png}
+   \includegraphics[scale=0.29]{Images/home1.png}
    \caption{Página principal de Utilizador}
 \end{figure}
 
 \section{Funcionalidades de Utilizador}
 
-No contexto de utilização da arquitetura por parte de um utilizador, é extremamente importante este poder consultar e analisar os resultados da sua monitorização. Deste modo, um dos objetivos no desenvolvimento da interface foi fornecer aos utilizadores acesso a todo o seu histórico de registos provenientes da utilização da arquitetura desenvolvida. Cada utilizador terá assim na sua área pessoal acesso total a todo o conteúdo de informação recolhida e processada pela arquitetura. Para além disso terá ainda disponível diversas formas de acesso e apresentação da informação, com o intuito de que os seus utilizadores possam tirar o máximo de proveito dos seus próprios dados.
+No contexto de utilização da arquitetura por parte de um utilizador, é extremamente importante este poder consultar e analisar os resultados da sua monitorização. Deste modo, um dos objetivos no desenvolvimento da interface foi fornecer aos utilizadores acesso a todo o seu histórico de registos provenientes da utilização da arquitetura desenvolvida. Cada utilizador terá assim na sua área pessoal acesso total a todo o conteúdo de informação recolhida e processada pela arquitetura. Para além disso terá ainda disponível diferentes formas de acesso e apresentação da informação, com o intuito de que os seus utilizadores possam tirar o máximo de proveito dos seus próprios dados.
 
 Assim para além das informações mais genéricas apresentados a cada utilizador na sua página principal, este poderá aceder a duas áreas da interface nas quais poderá consultar todos os seus registos de monitorização. A diferenças entre estas duas áreas reside na forma de apresentação da informação. Na primeira área o utilizador poderá aceder aos seus registos sob a forma de tabela, selecionando o tipo de dados que pretende consultar e uma métrica associada ao tipo de dado escolhido. No caso de esse tipo de dados não conter nenhuma métrica disponível na arquitetura a informação será apresentada em bruto, tal como foi recolhida pelo dispositivo responsável pela monitorização. Para além disso, o utilizador poderá ainda escolher o período de monitorização que pretende, tendo em conta obviamente os dois parâmetros já definidos.
 
  \begin{figure}[htb]
    \centering
-   \includegraphics[scale=0.29]{Images/tables.png}
+   \includegraphics[scale=0.29]{Images/tables1.png}
    \caption{Página de visualização de registos de monitorização sob a forma de tabelas}
 \end{figure}
 
@@ -46,7 +46,7 @@ A segunda área de apresentação dos registos de monitorização disponibilizad
 
  \begin{figure}[htb]
    \centering
-   \includegraphics[scale=0.29]{Images/graphs.png}
+   \includegraphics[scale=0.29]{Images/graphs1.png}
    \caption{Página de visualização de registos de monitorização sob a forma de gráficos}
 \end{figure}
 
@@ -57,7 +57,7 @@ Relativamente às funcionalidades de administração, estas residem sobretudo no
 
 \begin{figure}[htb]
    \centering
-   \includegraphics[scale=0.29]{Images/users.png}
+   \includegraphics[scale=0.29]{Images/users1.png}
    \caption{Página de consulta de utilizadores da arquitetura}
 \end{figure}
 
@@ -65,7 +65,7 @@ Cada administrador do sistema poderá consultar os dados de todos os utilizadore
 
 \begin{figure}[htb]
    \centering
-   \includegraphics[scale=0.29]{Images/sensores.png}
+   \includegraphics[scale=0.29]{Images/sensores1.png}
    \caption{Página de consulta de sensores registados na arquitetura}
 \end{figure}
 

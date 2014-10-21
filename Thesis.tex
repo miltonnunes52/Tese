@@ -9,6 +9,12 @@
 \graphicspath{{Figures/}}  % Location of the graphics files (set up for graphics to be in PDF format)
 \usepackage[portuguese]{babel}
 
+
+%mudar margens laterais
+\oddsidemargin 32mm
+\evensidemargin 32mm
+
+
 % Include any extra LaTeX packages required
 \usepackage[square, numbers, comma, sort&compress]{natbib}  % Use the "Natbib" style for the references in the Bibliography
 \usepackage[T1]{fontenc}
@@ -36,6 +42,7 @@
 %\usepackage[notlof]{tocbibind}
 \usepackage{thumbpdf}
 %\usepackage[latin1]{inputenc}
+
 \usepackage[utf8x]{inputenc}
 \usepackage{todonotes}
 \usepackage{fancyvrb}
@@ -59,8 +66,8 @@
 \frontmatter	  % Begin Roman style (i, ii, iii, iv...) page numbering
 
 %COVER PAGE%
-\includepdf[pages=1,scale=1,offset=2.5cm -2.5cm]{capatese.pdf}
-\includepdf[pages=2,scale=1,offset=2.5cm -2.5cm]{capatese.pdf}
+\includepdf[pages=1,scale=1,offset=2.5cm -2.5cm]{capatese1.pdf}
+\includepdf[pages=2,scale=1,offset=2.5cm -2.5cm]{capatese1.pdf}
 %% ----------------------------------------------------------------
 
 \setstretch{1.5}  % It is better to have smaller font and larger line spacing than the other way round
@@ -97,12 +104,29 @@
 
 
 %\addtotoc{Agradecimentos}
-\include{Agradecimentos}
+\chapter*{Agradecimentos}
 
-%----------------Resumo----------------
-\pagenumbering{roman} \setcounter{page}{1}
-% The Abstract Page
-%\addtotoc{Resumo}  % Add the "Abstract" page entry to the Contents
+A conclusão deste trabalho não seria possível sem a ajuda e apoio de um conjunto de pessoas. Deixo-lhes aqui o meu sincero agradecimento:
+
+
+Aos meus orientadores Professor Paulo Novais e Davide Carneiro pelo constante acompanhamento, apoio, sugestões e incentivo dado durante todo o trabalho.
+
+Ao meu amigo e colega de trabalho do ISLab André Pimenta por todo o apoio, pelas suas ideias, e pela sua constante disponibilidade.
+
+A todos os meus colegas de curso e amigos que comigo iniciaram o seu percurso académico e estiveram sempre ao meu lado.
+
+E ainda um agradecimento muito especial aos meus pais Milton Nunes e Adélia Sousa, e à minha irmã Magda Nunes, por todo incentivo e força que me deram durante todo este percurso.
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\include{asas}
+
+
+
+% !TEX encoding = IsoLatin
+%\thispagestyle{empty}
 \begin{center}
 {\large \textit{Resumo} }
 \end{center}
@@ -116,10 +140,20 @@
 \vspace{3cm}
 
 \textbf{Palavras-chave:} Arquitetura, Serviços, Ambientes Inteligentes, Monitorização, Sensores
+
+
+
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
 %----------------Abstract----------------
 
 %\addtotoc{Abstract}  % Add the "Abstract" page entry to the Contents
 \include{Abstract}
+\newpage
+\thispagestyle{empty}
+\mbox{}
 
 
 %% ----------------------------------------------------------------
@@ -139,8 +173,11 @@
 %\lhead{\emph{Lista de figuras}}  % Set the left side page header to "List of Tables"
 \renewcommand\listtablename{Lista de Tabelas}
 \listoftables  % Write out the List of Tables
+\newpage
 
-
+\newpage
+\thispagestyle{empty}
+\mbox{}
 %% ----------------------------------------------------------------
 \setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
 \clearpage  % Start a new page
@@ -173,10 +210,12 @@
 	\textbf{POM}	& \textbf{P}roject \textbf{O}bject  \textbf{M}odel  \\ \\
 	\textbf{SQL}	& \textbf{S}tructured \textbf{Q}uery  \textbf{L}anguage  \\ \\
 	\textbf{JSF}	& \textbf{J}ava \textbf{S}erver  \textbf{F}aces  \\ \\
-	\textbf{MVC}	& \textbf{M}odel \textbf{V}iew  \textbf{C}ontroller  \\ \\			      	\textbf{ISLAB}	& \textbf{I}ntelligent \textbf{S}ystems  \textbf{Lab}  \\ \\
+	\textbf{MVC}	& \textbf{M}odel \textbf{V}iew  \textbf{C}ontroller  \\ \\			      	\textbf{ISLab}	& \textbf{I}ntelligent \textbf{S}ystems  \textbf{Lab}  \\ \\
 \end{tabular}
 \end{table}
-
+\newpage
+\thispagestyle{empty}
+\mbox{}
 
 
 %% ----------------------------------------------------------------
@@ -213,6 +252,10 @@
 \input{./Chapters/interface} 
 
 \input{./Chapters/conclusion} 
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
 
 
 

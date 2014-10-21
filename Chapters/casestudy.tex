@@ -13,11 +13,11 @@ Outro fator fundamental na seleção deste três tipos de sensores prende-se com
 
 O conjunto de fatores e correspondentes decisões, que levaram à escolha dos sensores apresentados, garantem os pressupostos necessários para cumprir os objetivos pretendidos com esta experiência. Desta forma foram reunidas condições que permitirão alcançar resultados que demonstrem a funcionalidade, interoperabilidade e ainda a utilidade da arquitetura para os seus utilizadores.
 
-\section{Tipos de Utilizadores/ da Experiência}
+\section{População Experimental}
 
-No planeamento de uma experiência deste tipo existem várias questões a ponderar. Nesta em particular, em que um dos objetivos é demonstrar a funcionalidade e utilidade da arquitetura desenvolvida, a definição dos utilizadores é uma parte fundamental. Deve então ser ponderado qual o perfil de utilizadores mais indicado para a demonstração e atentar na sua diversidade. Deste modo, importa garantir que a escolha do conjunto de utilizadores é baseada não só nos objetivos da experiência, mas também nas características da arquitetura.
+No planeamento de uma experiência com estas características existem várias questões a ponderar. Tendo em conta que um dos objetivos é demonstrar a funcionalidade e utilidade da arquitetura desenvolvida, a definição dos utilizadores trata-se de uma parte fundamental. Deve então ser ponderado qual o perfil de utilizadores mais indicado para a demonstração e atentar na sua diversidade. Deste modo, importa garantir que a escolha do conjunto de utilizadores é baseada não só nos objetivos da experiência, mas também nas características da arquitetura.
 
-Com base neste pressuposto, foram ponderadas todas as características da arquitetura apresentadas de modo a selecionar um conjunto de utilizadores adequado. Posto isto, o conjunto de utilizadores escolhido corresponde ao grupo de pessoas que utiliza o Laboratório de Sistemas Inteligentes (ISLAB). Isto permite obter um conjunto de utilizadores heterogéneo, com diferentes características pessoais e ainda com personalidades distintas. O facto destes utilizadores terem a sua formação diretamente ligada à área da informática é também uma mais valia tendo em conta os restantes pressupostos definidos. Com esta opção pretende-se também aumentar a probabilidade de verificar resultados distintos para os vários parâmetros a analisar, apesar do recurso ao mesmo tipo de aparelhos de monitorização.
+Com base neste pressuposto, foram ponderadas todas as características da arquitetura apresentadas de modo a selecionar um conjunto de utilizadores adequado. Posto isto, o conjunto de utilizadores escolhido corresponde ao grupo de pessoas que utiliza o Laboratório de Sistemas Inteligentes (ISLab). Isto permite obter um conjunto de utilizadores heterogéneo, com diferentes características pessoais e ainda com personalidades distintas. O facto destes utilizadores terem a sua formação diretamente ligada à área da informática é também uma mais valia tendo em conta os restantes pressupostos definidos. Com esta opção pretende-se também aumentar a probabilidade de verificar resultados distintos para os vários parâmetros a analisar, apesar do recurso ao mesmo tipo de aparelhos de monitorização.
 
 O conjunto de utilizadores definido será então sujeito a períodos de monitorização que permitirão testar a arquitetura através da utilização dos três tipos de sensores apresentados.  Para além disso, deve ainda ser realçado o facto de que a heterogeneidade das pessoas escolhidas aliada aos restantes pressupostos definidos permitem alcançar a diversidade de condicionantes pretendida para esta demonstração.
 
@@ -32,7 +32,7 @@ Tendo em conta a relevância de todos os pontos já descritos foram então escol
 
 \begin{figure}[htb]
    \centering
-   \includegraphics[scale=0.5]{Images/ambientesestudo.jpg}
+   \includegraphics[scale=0.45]{Images/ambientesestudo.jpg}
    \caption{Ambientes de teste definidos}
 \end{figure}
 
@@ -50,16 +50,13 @@ Entre os diversos serviços de métricas integrados na arquitetura e utilizados 
 
 Posto isto, e tal como já foi apresentado, estes testes foram feitos por um conjunto de utilizadores de forma a analisar os diferentes comportamentos em diversos parâmetros na execução de três tarefas diferentes. Uma dessas tarefas corresponde à utilização do Facebook. Neste aspeto o serviço de métricas que revelou resultados mais interessantes foi  o \textit{Writing Acceleration}. Este serviço de métrica, que corresponde aos dados recolhidos pelo sensor de teclado, apresenta a variação da velocidade de escrita por intervalo de tempo. A análise dos dados recolhidos e processados permite concluir que os três utilizadores escolhidos neste caso apresentaram resultados claramente distintos.
 
-
-Estes resultados são bastante curiosos porque os três utilizadores tiveram um elevado número de registos de aceleração negativos, ou seja, perda de velocidade. Isto levou a que as médias apresentadas pelos três se situassem em bastante perto do valor zero. O primeiro utilizador foi o único que obteve uma média negativa, apesar de bastante perto do zero, e apresentou também o maior desvio padrão. O segundo utilizador teve a média mais elevada e o menor desvio padrão. Para além disso apresentou ainda os valores máximos e mínimos mais elevados para este caso em particular, como é possível também verificar pelo \textit{BoxPlot} apresentado. O terceiro utilizador obteve os resultados mais intermédios, de sublinhar apenas a sua mediana que apresentou valores negativos, ao contrário dos restantes utilizadores apresentados.
-
 \begin{figure}[htb]
    \centering
    \includegraphics[scale=0.45]{Images/writingaccelerationfb.png}
    \caption{Histograma e BoxPlot de resultados de Writing Acceleration dos três utilizadores na utilização do Facebook}
 \end{figure}
 
-{\renewcommand{\arraystretch}{1.6}
+{\renewcommand{\arraystretch}{1.0}
 \begin{table*}[!htb]
 \centering
 \label{tab:a_tbk}
@@ -76,9 +73,13 @@ Estes resultados são bastante curiosos porque os três utilizadores tiveram um 
 \caption{Valores médios de Writing Acceleration dos três utilizadores na utilização do Facebook} 
 \end{table*}}
 
+Estes resultados são bastante curiosos porque os três utilizadores tiveram um elevado número de registos de aceleração negativos, ou seja, perda de velocidade. Isto levou a que as médias apresentadas pelos três se situassem em bastante perto do valor zero. O primeiro utilizador foi o único que obteve uma média negativa, apesar de bastante perto do zero, e apresentou também o maior desvio padrão. O segundo utilizador teve a média mais elevada e o menor desvio padrão. Para além disso apresentou ainda os valores máximos e mínimos mais elevados para este caso em particular, como é possível também verificar pelo \textit{BoxPlot} apresentado. O terceiro utilizador obteve os resultados mais intermédios, de sublinhar apenas a sua mediana que apresentou valores negativos, ao contrário dos restantes utilizadores apresentados.
 
 
-A navegação de forma livre na Internet por parte dos utilizadores foi outro dos ambientes de monitorização ao qual estes foram sujeitos. No que diz respeito aos resultados obtidos através dos serviços de métricas importa realçar os resultados do \textit{Distance Between Clicks}. Esta métrica, referente aos dados provenientes da utilização do rato, representa a distância percorrida entre dois cliques consecutivos. Neste aspeto o segundo utilizador selecionado revelou-se o utilizador que menos distância percorre entre dois cliques, tal como indica a sua distância média. Como é possível verificar graficamente, grande parte dos registos do segundo utilizador centram-se em valores baixos, o que ajuda a explicar a sua distância média inferior aos restantes. O primeiro e terceiros utilizadores registam valores mais elevados para todos os parâmetros estatísticos apresentados, sendo o primeiro utilizador o detentor da média mais alta e o terceiro o que registo o valor máximo mais elevado. De salientar também que a diferença de médias do segundo para o primeiro utilizador já é uma diferença significativa.
+
+
+
+A navegação de forma livre na Internet por parte dos utilizadores foi outro dos ambientes de monitorização ao qual estes foram sujeitos. No que diz respeito aos resultados obtidos através dos serviços de métricas importa realçar os resultados do \textit{Distance Between Clicks}. Esta métrica, referente aos dados provenientes da utilização do rato, representa a distância percorrida entre dois cliques consecutivos. 
 
 
 \begin{figure}[htb]
@@ -87,7 +88,7 @@ A navegação de forma livre na Internet por parte dos utilizadores foi outro do
    \caption{Histograma e BoxPlot de Distance Between Clicks dos três utilizadores na utilização da Internet}
 \end{figure}
 
-{\renewcommand{\arraystretch}{1.6}
+{\renewcommand{\arraystretch}{1.0}
 \begin{table*}[!htb]
 \centering
 \label{tab:a_tbk}
@@ -104,6 +105,10 @@ A navegação de forma livre na Internet por parte dos utilizadores foi outro do
 \caption{Valores médios de Distance Between Clicks dos três utilizadores na utilização da Internet} 
 \end{table*}}
 
+Neste aspeto o segundo utilizador selecionado revelou-se o utilizador que menos distância percorre entre dois cliques, tal como indica a sua distância média. Como é possível verificar graficamente, grande parte dos registos do segundo utilizador centram-se em valores baixos, o que ajuda a explicar a sua distância média inferior aos restantes. O primeiro e terceiros utilizadores registam valores mais elevados para todos os parâmetros estatísticos apresentados, sendo o primeiro utilizador o detentor da média mais alta e o terceiro o que registo o valor máximo mais elevado. De salientar também que a diferença de médias do segundo para o primeiro utilizador já é uma diferença significativa.
+
+
+
 
 O outro contexto de monitorização definido foi o período de trabalho dos utilizadores. Este contexto normalmente é o mais intenso e desgastante dos três. De forma a poder comparar o desempenho neste ambiente são apresentados resultados de três utilizadores correspondentes à velocidade de escrita durante este período. 
 
@@ -114,7 +119,7 @@ O outro contexto de monitorização definido foi o período de trabalho dos util
    \caption{Histograma e BoxPlot de Writing Velocity dos três utilizadores durante o período de trabalho}
 \end{figure}
 
-{\renewcommand{\arraystretch}{1.6}
+{\renewcommand{\arraystretch}{1.0}
 \begin{table*}[!htb]
 \centering
 \label{tab:a_tbk}
@@ -131,11 +136,10 @@ O outro contexto de monitorização definido foi o período de trabalho dos util
 \caption{Valores médios de Writing Velocity dos três utilizadores durante o período de trabalho} 
 \end{table*}}
 
-Os resultados do terceiro utilizador demonstram que este foi o mais calmo, relativamente a a este aspeto, durante o seu período de trabalho, registando-se a maior parte dos seus registos nos valores mais baixos. O segundo utilizador teve resultados mais elevados que o terceiro, ainda assim verifica-se que, tal como o terceiro utilizador, a maior parte dos seus registos se encontram nos valores mais baixos. Por fim, o primeiro utilizador foi o que apresentou resultados mais elevados, o que indica maior intensidade no seu período de trabalho comparativamente com os restantes utilizadores. A média de resultados apresentada pelo primeiro utilizador é superior aos restantes, bem como o seu desvio padrão e mediana. 
+Os resultados do terceiro utilizador demonstram que este foi o mais calmo, relativamente a este aspeto, durante o seu período de trabalho, registando-se a maior parte dos seus registos nos valores mais baixos. O segundo utilizador teve resultados mais elevados que o terceiro, ainda assim verifica-se que, tal como o terceiro utilizador, a maior parte dos seus registos se encontram nos valores mais baixos. Por fim, o primeiro utilizador foi o que apresentou resultados mais elevados, o que indica maior intensidade no seu período de trabalho comparativamente com os restantes utilizadores. A média de resultados apresentada pelo primeiro utilizador é superior aos restantes, bem como o seu desvio padrão e mediana. 
 
-Outra análise relevante que deve ser tida em conta é a comparação de resultados obtidos pelo mesmo utilizador na execução de diferentes tarefas. Esta comparação permitirá verificar a diferença de comportamento de um utilizador sob condições diferentes e retirar conclusões sobre esses factos. Posto isto, foram selecionados os resultados de um utilizador para a métrica de \textit{Absolute Sum of Angles} que permite quantificar o desvio do movimento do rato independentemente da sua direção. Os resultados desta métrica, teoricamente, terá tendência a apresentar valores mais altos em situações de maior desgaste ou stress, por exemplo.
+Outra análise relevante que deve ser tida em conta é a comparação de resultados obtidos pelo mesmo utilizador na execução de diferentes tarefas. Esta comparação permitirá verificar a diferença de comportamento de um utilizador sob condições diferentes e retirar conclusões sobre esses factos. Posto isto, foram selecionados os resultados de um utilizador para a métrica de \textit{Absolute Sum of Angles} que permite quantificar o desvio do movimento do rato independentemente da sua direção. Os resultados desta métrica terão, teoricamente, tendência a apresentar valores mais altos em situações de maior desgaste ou stress, por exemplo.
 
-Os resultados obtidos desta forma apresentam diferenças significativas entre a monitorização efetuada durante a utilização do Facebook e Internet em relação à monitorização durante o período de trabalho. Os valores obtidos durante os dois primeiros contextos apresentam valores bastante aproximados, tanto para os valores médios e desvios padrões como é, inclusivamente, visível graficamente. Esta semelhança de valores indica que em ambas as situações o utilizador teve comportamentos relativamente semelhantes neste parâmetro em particular. Já no que diz respeito ao período de trabalho as diferenças são bastante acentuadas. A média e desvio são bastante superiores, sendo até necessário utilizar uma escala bastante maior para apresentar o \textit{BoxPlot} dos resultados de monitorização do utilizador durante o período de trabalho . 
 
  \begin{figure}[htb]
    \centering
@@ -143,7 +147,7 @@ Os resultados obtidos desta forma apresentam diferenças significativas entre a 
    \caption{Histograma e BoxPlot de Absolute Sum of Angles das três tarefas realizadas por um utilizador}
 \end{figure}
 
-{\renewcommand{\arraystretch}{1.6}
+{\renewcommand{\arraystretch}{1.0}
 \begin{table*}[!htb]
 \centering
 \label{tab:a_tbk}
@@ -160,13 +164,14 @@ Facebook&5855.7629&5633.691161&4285.8231&40281.81227&0 \\
 \caption{Valores médios de Absolute Sum of Angles das três tarefas realizadas por um utilizador} 
 \end{table*}}
 
+Os resultados obtidos desta forma apresentam diferenças significativas entre a monitorização efetuada durante a utilização do Facebook e Internet em relação à monitorização durante o período de trabalho. Os valores obtidos durante os dois primeiros contextos apresentam valores bastante aproximados, tanto para os valores médios e desvios padrões como é, inclusivamente, visível graficamente. Esta semelhança de valores indica que em ambas as situações o utilizador teve comportamentos relativamente semelhantes neste parâmetro em particular. Já no que diz respeito ao período de trabalho as diferenças são bastante acentuadas. A média e desvio são bastante superiores, sendo até necessário utilizar uma escala bastante maior para apresentar o \textit{BoxPlot} dos resultados de monitorização do utilizador durante o período de trabalho . 
+
+
 Estes valores demonstram de facto uma diferença acentuada entre duas situações de lazer, navegar na Internet e utilização de Facebook, relativamente a uma situação de trabalho com toda a carga que este contexto implica. O facto de ser um contexto mais pesado e com maior probabilidade de existência de situações como a fadiga e stress, justifica a variação de resultados entre os contextos analisados neste caso particular.
 
 A utilização do acelerómetro nesta experiência não foi tão profunda e abrangente como a dos restantes sensores. A sua utilização não foi orientada às três tarefas definidas mas apenas num contexto livre por dificuldade de acesso ao próprio dispositivo. Ainda assim, importa apresentar alguns resultados da sua utilização. Este tipo de dados também não tem, de momento, serviços de métricas desenvolvidos, contudo a análise dos seus resultados permite observar dados interessantes. Este tipo de sensor permitem verificar a aceleração ocorrida sobre três eixos, ou seja, permite obter a aceleração na diagonal, horizontal e vertical.
 
 O acelerómetro foi utilizado sobre as pernas, rato, teclado e cadeiras dos seus utilizadores de forma a tentar abranger vários pontos corporais e de interação com o computador. Os resultados apresentados correspondem aos dados recolhidos sobre a aceleração de um utilizador sobre o seu movimento na cadeira. 
-
-Como é possível verificar, os resultados indicam uma aceleração média positiva tanto na horizontal como na diagonal, ao contrário da aceleração verificada na vertical que indica que o movimento neste eixo tem uma variação média de velocidade negativa. De referir ainda que a aceleração na horizontal é a mais acentuada e a aceleração na diagonal contém alguns registos negativos.
 
  \begin{figure}[htb]
    \centering
@@ -174,7 +179,7 @@ Como é possível verificar, os resultados indicam uma aceleração média posit
    \caption{Histograma e BoxPlot de resultados de acelerómetro sobre o movimento na cadeira}
 \end{figure}
 
-{\renewcommand{\arraystretch}{1.6}
+{\renewcommand{\arraystretch}{1.0}
 \begin{table*}[!htb]
 \centering
 \label{tab:a_tbk}
@@ -191,9 +196,12 @@ Diagonal&0.067960187&0.074981723&0.0938&0.4375&-0.65625 \\
 \caption{Valores médios de resultados de acelerómetro sobre o movimento na cadeira} 
 \end{table*}}
 
+Como é possível verificar, os resultados indicam uma aceleração média positiva tanto na horizontal como na diagonal, ao contrário da aceleração verificada na vertical que indica que o movimento neste eixo tem uma variação média de velocidade negativa. De referir ainda que a aceleração na horizontal é a mais acentuada e a aceleração na diagonal contém alguns registos negativos.
 
 
-\section{Conclusão/Sumario}
+
+
+\section{Conclusão}
 
 Esta experiência permitiu validar o funcionamento da arquitetura e dessa forma confirmar que a arquitetura desenvolvida é funcional e bastante útil para os seus utilizadores. Foi possível verificar que se trata de uma arquitetura com um funcionamento estável e cujas suas características e funcionalidades permitem uma recolha, tratamento e gestão da informação dos utilizadores fiáveis. A apresentação de diversos resultados e consequente análise do comportamento dos utilizadores efetuada neste capítulo demonstra que se trata de uma arquitetura com grande utilidade. A sua utilização em situações de monitorização, independentemente do contexto e localização dos dispositivos de recolha de informação, dá assim garantias de fiabilidade aos seus utilizadores.
 
@@ -201,4 +209,4 @@ Um fator importante para o sucesso desta demonstração foi o cuidado na escolha
 
 Relativamente ao conteúdo dos resultados alcançados, estes foram bastantes satisfatórios. Para além de provarem a funcionalidade da arquitetura, permitiram verificar vários pontos e situações muito interessantes no que diz respeito ao comportamento dos utilizadores. De referir ainda que, num cômputo geral, os resultados alcançados foram de encontro ao que se pretendia na definição prévia de todas as características pensadas para esta experiência. Ou seja, todas as condições foram definidas de modo a que os resultados permitissem verificar algumas diferenças entre os contextos e resultados de cada utilizador. A análise final dos resultados confirmou a existência dessas diferenças tal como se pretendia.
 
-A demonstração efetuada permitiu ainda verificar a utilidade dos serviços de métricas integrados na arquitetura. A utilização destes serviços na arquitetura permitiu analisar vários aspetos em particular e apresenta-los ao utilizador final, como estes resultados aqui apresentados demonstram. De assinalar ainda a diversidade de parâmetros e resultados obtidos através desta experiência. Apesar de apenas terem sido utilizados três tipos de sensores, para além das restantes condições definidas para este caso em particular, os resultados obtidos foram bastante abrangentes. Foi possível obter resultados de um número bastante alargado de aspetos e analisar o comportamento de cada utilizador nesses contextos.
+A demonstração efetuada permitiu ainda verificar a utilidade dos serviços de métricas integrados na arquitetura. A utilização destes serviços na arquitetura permitiu analisar vários aspetos em particular e apresentá-los ao utilizador final, como estes resultados aqui apresentados demonstram. De assinalar ainda a diversidade de parâmetros e resultados obtidos através desta experiência. Apesar de apenas terem sido utilizados três tipos de sensores, para além das restantes condições definidas para este caso em particular, os resultados obtidos foram bastante abrangentes. Foi possível obter resultados de um número bastante alargado de aspetos e analisar o comportamento de cada utilizador nesses contextos.
